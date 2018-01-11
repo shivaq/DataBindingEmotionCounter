@@ -1,0 +1,67 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+// Define versions in a single place
+ext{
+    // android support libraries
+    supportLibraryVersion = '26.1.0'
+    // butterknife
+    butterKnifeVersion = '8.8.1'
+
+    // date format
+    threetenabpVersion = '1.0.5'
+    // rx
+    rxAndroid2Version = '2.0.1'
+    rxJava2Version = '2.1.1'
+
+    // logger
+    timberVersion = '4.5.1'
+    // unit test
+    junitVersion = '4.12'
+    assertJ = '3.6.2'
+    mockitoVersion = '2.7.22'
+    dexmakerVersion = '1.2'
+    robolectricVersion = '3.3.2'
+    // ui test
+    espressoVersion = '2.2.2'
+    // assertJ add on
+    assertJAddonVersion = '1.1.1@aar'
+    // Android Testing Support Library's runner and rules
+    runnerVersion = '0.5'
+
+    // database
+    stethoVersion = '1.5.0'
+
+    // dependency injection
+    dagger2Version = '2.10'
+    // constraint layout
+    constraintLayoutVersion = '1.0.2'
+
+    // firebase
+    firebaseVersion = '11.8.0'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

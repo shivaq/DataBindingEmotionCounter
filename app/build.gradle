@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "banbutsu.kyoto.com.databindingemotioncounter"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // デフォルトで使うものども
+    // android support libraries
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
+
+    // butterknife
+    compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+
+    // database
+    compile "com.facebook.stetho:stetho:$rootProject.stethoVersion"
+    compile "com.facebook.stetho:stetho-okhttp3:$rootProject.stethoVersion"
+
+    // dependency injection
+    compile "com.google.dagger:dagger:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    provided 'javax.annotation:jsr250-api:1.0'
+    compile 'javax.inject:javax.inject:1'
+
+    // constraint layout
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+
+    // date format
+    compile "com.jakewharton.threetenabp:threetenabp:$rootProject.threetenabpVersion"
+
+    // rx
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid2Version"
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxJava2Version"
+
+    // Logger
+    compile "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    // unit test
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.assertj:assertj-core:$rootProject.assertJ"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "org.robolectric:robolectric:$rootProject.robolectricVersion"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    // ui test
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    androidTestImplementation "com.google.dexmaker:dexmaker:$rootProject.dexmakerVersion"
+    androidTestImplementation "com.google.dexmaker:dexmaker-mockito:$rootProject.dexmakerVersion"
+    androidTestImplementation "org.assertj:assertj-core:$rootProject.assertJ"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    // assertJ addon
+    androidTestImplementation 'com.squareup.assertj:assertj-android:1.1.1'
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.runnerVersion"
+
+    // for analytics
+    compile "com.google.firebase:firebase-core:$rootProject.firebaseVersion"
+    // firebase
+    compile "com.google.firebase:firebase-ads:$rootProject.firebaseVersion"
+
+    //workaround for dependency conflict
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:25.2.0'
+    }
+}
