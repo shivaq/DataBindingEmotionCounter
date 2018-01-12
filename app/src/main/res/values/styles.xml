@@ -8,4 +8,24 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="emotion_button">
+    <item name="android:layout_width">80dp</item>
+    <item name="android:layout_height">80dp</item>
+    <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    <item name="android:clickable">true</item>
+  </style>
+
+  <style name="emotion_display">
+    <item name="android:layout_width">30dp</item>
+    <item name="android:layout_height">30dp</item>
+    <item name="android:clickable">false</item>
+  </style>
+
+  <!-- Text -->
+  <style name="tv_base">
+    <item name="android:fontFamily">sans-serif</item>
+    <item name="android:textColor">@color/almost_black</item>
+    <item name="android:textSize">@dimen/text_size_medium</item>
+    <item name="android:lineSpacingMultiplier">@dimen/line_space_multiply_body_1_spacing</item>
+  </style>
 </resources>

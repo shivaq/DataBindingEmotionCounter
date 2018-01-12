@@ -1,6 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#3F51B5</color>
-  <color name="colorPrimaryDark">#303F9F</color>
-  <color name="colorAccent">#FF4081</color>
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+  <color name="almost_black">#333333</color>
+  <color name="grey">#BCBCBC</color>
+  <color name="grey_z03">#333333</color>
+  <!--<color name="ltgray">#333333</color>-->
+
+  <color name="colorPrimary">@color/light_blue07</color>
+  <color name="colorPrimaryDark">@color/black05</color>
+  <color name="colorPrimaryLight">@color/light_blue07</color>
+  <color name="colorAccent">@color/red02</color>
+
+  <color name="transparent">#00000000</color>
+  <color name="transparent2">#E6081325</color>
+  <color name="transparent3">#F2000000</color>
+  <color name="transparent_select">#4D2A2B2D</color>
+  <color name="card_transparent">#BF003E81</color>
+  <color name="card_title_transparent">#BF001029</color>
+
+  <!-- Colors represents function-->
+  <color name="normal_panel_label">@color/black04</color>
+  <color name="normal_panel_body">@color/white10</color>
+  <color name="create_color">@color/deep_green03</color>
+  <color name="create_pressed">#006B5B</color>
+  <color name="edit_color">@color/yellow07</color>
+  <color name="edit_pressed">#DB9633</color>
+  <color name="delete_color">@color/red06</color>
+  <color name="delete_pressed">#840F28</color>
+  <color name="configure_color">@color/pink09</color>
+  <color name="configure_pressed">#CC4F4C</color>
+  <color name="sort_color">@color/black04</color>
+  <color name="sort_pressed">#110E11</color>
+
+
+  <color name="person_color">@color/deep_blue07</color>
+  <color name="person_pressed">#081F21</color>
+  <color name="normal_color">@color/black05</color>
+  <color name="normal_pressed">#101316</color>
+  <color name="attention_color">@color/grey01</color>
+  <color name="attention_pressed">#8E8E8E</color>
+  <color name="basic_emotion_pressed">#5B060D</color>
+  <color name="advanced_emotion_pressed">#000000</color>
+  <color name="btn_white_color">@color/white</color>
+  <color name="btn_white_color_pressed">@color/grey01</color>
+
+  <color name="group_color">@color/light_green02</color>
+  <color name="group_pressed">#396810</color>
+  <color name="filter_color">@color/purple03</color>
+  <color name="filter_pressed">#1C041B</color>
+
+  <!-- for help-->
+  <color name="btn_explanation">@color/black06</color>
+
+  <!-- for group-->
+  <color name="group_label">@color/black04</color>
+
+  <color name="basic_emotion_color">@color/red05</color>
+  <color name="advanced_emotion_color">@color/black03</color>
+
+  <color name="btnSelected">@color/red01</color>
+  <color name="btnUnSelected">@color/black05</color>
+
+
+  <!-- new colors ///////////////////////////////////-->
+  <color name="background_dark">@color/black05</color>
+  <color name="background_white">@color/white01</color>
+  <color name="text_white">@color/white05</color>
+  <color name="text_attention">@color/yellow04</color>
+  <color name="text_attention_red">@color/red05</color>
+  <color name="text_grey">@color/grey</color>
+
+
+  <color name="card_base_blue">@color/light_blue07</color>
+  <color name="card_label_red">@color/red02</color>
+  <color name="card_base_deep_blue">@color/deep_blue07</color>
+  <color name="card_label_yellow">@color/yellow01</color>
+
+  <color name="card_rank_yellow">@color/yellow06</color>
+  <color name="card_rank_yellow_for_yellow_base">@color/yellow07</color>
+  <color name="card_rank_second">@color/silver</color>
+  <color name="card_rank_third">@color/bronze</color>
+  <color name="card_rank_base_red">@color/red02</color>
+  <color name="card_rank_base_black">@color/black02</color>
+  <color name="card_rank_base_purple">@color/purple03</color>
+  <color name="card_rank_base_yellow">@color/yellow05</color>
+  <color name="card_rank_base_pink">@color/pink05</color>
+  <color name="card_rank_base_white">@color/white01</color>
+  <color name="red_text_for_card_rank_white">@color/red09</color>
+
+  <!-- for emotion -->
+  <color name="emotion_nothing">@color/white04</color>
+  <color name="emotion_joy">@color/yellow04</color>
+  <color name="emotion_trust">@color/light_green02</color>
+  <color name="emotion_fear">@color/black05</color>
+  <color name="emotion_anticipation">#1621EF</color>
+  <color name="emotion_sadness">#0464A5</color>
+  <color name="emotion_disgust">#BC9B51</color>
+  <color name="emotion_anger">#FF0000  </color>
+  <color name="emotion_surprise">#B1D12C</color>
+  <color name="emotion_optimism">#06A6FF</color>
+  <color name="emotion_disappointment">#707070</color>
+  <color name="emotion_love">#F6628E</color>
+  <color name="emotion_remorse">#9F21A3</color>
+  <color name="emotion_submission">#04A599</color>
+  <color name="emotion_contempt">#358700</color>
+  <color name="emotion_aggressiveness">#BA132F</color>
+  <color name="emotion_awe">#FF621D</color>
+  <color name="emotion_libido">#F4005E</color>
+  <color name="emotion_shame">#F4BDCF</color>
+  <color name="emotion_self_respect">#FAFF39</color>
+
+
+
+
+
+
+
+  <color name="left_radar_color">@color/yellow09</color>
+  <color name="right_radar_color">@color/red04</color>
+  <color name="radar_point_color">@color/grey01</color>
+
+  <!-- colors for bases-->
+  <color name="white05">#F7F0C4</color>
+  <color name="red07">#F1372C</color>
+  <color name="red09">#C74B54</color>
+  <color name="purple03">#380833</color>
+  <color name="pink05">#FB756C</color>
+  <color name="light_blue07">#0095A1</color>
+  <color name="deep_blue07">#114048</color>
+  <color name="silver">#BABFC6</color>
+  <color name="bronze">#EA6A68</color>
+
+  <!--Kind of white -->
+  <color name="white01">#F8F5E3</color>
+  <color name="white02">#F2ECD6</color>
+  <color name="white03">#E8E4D7</color>
+  <color name="white04">#FFF8E1</color>
+  <color name="white07">#FAE8BC</color>
+  <color name="white08">#F9F4B2</color>
+  <color name="white09">#C5B298</color>
+  <color name="white10">#F9E7D1</color>
+
+  <color name="grey01">#CCCCCC</color>
+  <color name="grey02">#646464</color>
+
+  <!--Kind of black -->
+  <color name="black01">#250804</color>
+  <color name="black02">#0B0001</color>
+  <color name="black03">#140718</color>
+  <color name="black04">#2A2B2D</color>
+  <color name="black05">#0A0C0E</color>
+  <color name="black06">#020202</color>
+  <color name="black07">@color/almost_black</color>
+
+  <!--Kind of pink -->
+  <color name="pink01">#FFE0E0</color>
+  <color name="pink02">#F2C7E2</color>
+  <color name="pink03">#FABCB0</color>
+  <color name="pink04">#F5CAAB</color>
+  <color name="pink06">#FFB395</color>
+  <color name="pink07">#FB8993</color>
+  <color name="pink08">#F6628E</color>
+  <color name="pink09">#FD635B</color>
+
+  <!--Kind of red -->
+  <color name="red01">#FA3C1B</color>
+  <color name="red02">#E53730</color>
+  <color name="red03">#D34241</color>
+  <color name="red04">#EB2643</color>
+  <color name="red05">#9A0A0E</color>
+  <color name="red06">#BA132F</color>
+
+  <!--Kind of purple -->
+  <color name="purple01">#E72845</color>
+  <color name="purple02">#DD0057</color>
+  <color name="purple04">#C2185B</color>
+  <color name="purple05">#880E4F</color>
+  <color name="purple06">#6C021B</color>
+  <color name="purple07">#6B183B</color>
+  <color name="purple08">#2A0A2F</color>
+
+  <!--Kind of yellow -->
+  <color name="yellow01">#FFF176</color>
+  <color name="yellow02">#FFD56D</color>
+  <color name="yellow03">#F8DB01</color>
+  <color name="yellow04">#FFC822</color>
+  <color name="yellow05">#DDB43C</color>
+  <color name="yellow06">#E0942E</color>
+  <color name="yellow07">#FFB539</color>
+  <color name="yellow08">#F69136</color>
+  <color name="yellow09">#FA7727</color>
+
+
+
+  <!--Kind of light_green -->
+  <color name="light_green01">#CFD41E</color>
+  <color name="light_green02">#58AB19</color>
+  <color name="light_green03">#96E465</color>
+  <color name="light_green04">#18DFA6</color>
+  <color name="light_green05">#989A2C</color>
+  <color name="light_green06">#4C5B38</color>
+  <color name="light_green07">#4F7647</color>
+  <color name="light_green08">#3F3419</color>
+
+  <!--Kind of deep_green -->
+  <color name="deep_green01">#4EAF97</color>
+  <color name="deep_green02">#28A499</color>
+  <color name="deep_green03">#009080</color>
+  <color name="deep_green04">#006767</color>
+  <color name="deep_green05">#005D41</color>
+  <color name="deep_green06">#063B39</color>
+  <color name="deep_green07">#052B19</color>
+
+  <!--Kind of light_blue -->
+  <color name="light_blue01">#4DD0E1</color>
+  <color name="light_blue02">#3AB2D4</color>
+  <color name="light_blue03">#00B9C9</color>
+  <color name="light_blue04">#329DB8</color>
+  <color name="light_blue05">#1BAFB7</color>
+  <color name="light_blue06">#009AC6</color>
+  <color name="light_blue08">#0097A7</color>
+  <color name="light_blue09">#008390</color>
+  <color name="light_blue10">#0265A7</color>
+  <color name="light_blue11">#006C8F</color>
+
+  <!--Kind of deep_blue -->
+  <color name="deep_blue01">#125061</color>
+  <color name="deep_blue02">#00273C</color>
+  <color name="deep_blue03">#001722</color>
+  <color name="deep_blue04">#10272A</color>
+  <color name="deep_blue05">#112452</color>
+  <color name="deep_blue06">#06062C</color>
 </resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- font sizes -->
+  <dimen name="text_size_x_small">10sp</dimen>
+  <dimen name="text_size_small">12sp</dimen>
+  <dimen name="text_size_medium">14sp</dimen>
+  <dimen name="text_size_large">18sp</dimen>
+  <dimen name="text_size_m_large">20sp</dimen>
+  <dimen name="text_size_xlarge">28sp</dimen>
+
+  <!-- text line space -->
+  <dimen name="line_space_headline">12dp</dimen>
+  <dimen name="line_space_subhead_16">8dp</dimen>
+  <dimen name="line_space_subhead_15">8dp</dimen>
+  <dimen name="line_space_body">6dp</dimen>
+
+  <!-- line text multiplier -->
+  <item format="float" name="line_space_multiply_body_1_spacing" type="dimen">1.22448979592</item>
+  <item format="float" name="line_space_multiply_h3_spacing" type="dimen">1.14285714286</item>
+
+  <dimen name="top_bottom8">8dp</dimen>
+  <dimen name="edge16">16dp</dimen>
+</resources>
