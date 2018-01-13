@@ -55,7 +55,9 @@ dependencies {
     // room
     implementation "android.arch.persistence.room:runtime:$rootProject.arcitectureComponentsVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.arcitectureComponentsVersion"
-
+    compile "android.arch.lifecycle:runtime:$rootProject.arcitectureComponentsVersion"
+    compile "android.arch.lifecycle:extensions:$rootProject.arcitectureComponentsVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.arcitectureComponentsVersion"
     // rx
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid2Version"
     // explicitly depend on RxJava's latest version for bug fixes and new features.
