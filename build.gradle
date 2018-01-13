@@ -35,6 +35,9 @@ ext{
     rxAndroid2Version = '2.0.1'
     rxJava2Version = '2.1.1'
 
+    // room
+    arcitectureComponentsVersion = '1.0.0'
+
     // logger
     timberVersion = '4.5.1'
     // unit test
