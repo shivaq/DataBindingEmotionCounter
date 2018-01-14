@@ -8,7 +8,7 @@ import android.arch.persistence.room.PrimaryKey;
  */
 
 @Entity(tableName = "remarks")
-public class Remark {
+public class RemarkEntry {
 
   @PrimaryKey(autoGenerate = true)
   public int id;

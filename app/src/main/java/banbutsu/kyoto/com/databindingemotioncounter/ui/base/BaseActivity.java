@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * Created by Yasuaki on 2018/01/11.
  */
 
-public class BaseActivity extends AppCompatActivity implements BaseMvpView {
+public class BaseActivity extends AppCompatActivity {
 
   // Store ActivityComponent to make it configure persistent
   private static final String KEY_ACTIVITY_ID = "KEY_ACTIVITY_ID";

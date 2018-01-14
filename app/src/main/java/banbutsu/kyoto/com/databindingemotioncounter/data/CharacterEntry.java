@@ -9,7 +9,7 @@ import android.arch.persistence.room.PrimaryKey;
  */
 
 @Entity(tableName = "characters", indices = {@Index(value = {"name", "type"}, unique = true)})
-public class Character {
+public class CharacterEntry {
 
   @PrimaryKey(autoGenerate = true)
   public int id;

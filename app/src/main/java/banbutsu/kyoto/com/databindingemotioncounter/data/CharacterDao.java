@@ -12,11 +12,11 @@ import java.util.List;
 public interface CharacterDao {
 
   @Insert
-  void insert(Character character);
+  void insert(CharacterEntry characterEntry);
 
   @Query("SELECT * FROM character")
-  List<Character> getAllCharacters();
+  List<CharacterEntry> getAllCharacters();
 
   @Query("SELECT * FROM character WHERE id = :characterId")
-  Character findById(int characterId);
+  CharacterEntry findById(int characterId);
 }

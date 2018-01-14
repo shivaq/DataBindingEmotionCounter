@@ -8,13 +8,13 @@ import android.content.Context;
 /**
  * Created by Yasuaki on 2018/01/13.
  */
-@Database(entities = {Character.class, Remark.class}, version = 1)
+@Database(entities = {CharacterEntry.class, RemarkEntry.class}, version = 1)
 public abstract class EmotionDatabase extends RoomDatabase {
 
   private static final String DATABASE_NAME = "emtion_database";
 
+  // Singleton化 用
   private static final Object LOCK = new Object();
-
   // volatile を Synchronized の代わりにロックに使える条件2つ
 //  その変数への書き込みが、その変数の現在の値に依存しない。
 //  その変数が、他の変数との不変式に使われていない。

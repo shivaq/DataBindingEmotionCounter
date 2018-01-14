@@ -12,8 +12,8 @@ import java.util.List;
 public interface RemarksDao {
 
   @Insert
-  void insert(Remark remark);
+  void insert(RemarkEntry remarkEntry);
 
-  @Query("SELECT * FROM remarks WHERE emotion = :emotion")
-  List<Remark> findRemarksByEmotion(String emotion);
+  @Query("SELECT * FROM RemarkEntry WHERE emotion = :emotion")
+  List<RemarkEntry> findRemarksByEmotion(String emotion);
 }
