@@ -3,6 +3,8 @@ package banbutsu.kyoto.com.databindingemotioncounter.di.component;
 import android.app.Application;
 import android.content.Context;
 import banbutsu.kyoto.com.databindingemotioncounter.MyApplication;
+import banbutsu.kyoto.com.databindingemotioncounter.data.Repository;
+import banbutsu.kyoto.com.databindingemotioncounter.data.local.PreferencesHelper;
 import banbutsu.kyoto.com.databindingemotioncounter.di.ApplicationContext;
 import banbutsu.kyoto.com.databindingemotioncounter.di.module.ApplicationModule;
 import dagger.Component;
@@ -25,4 +27,6 @@ public interface ApplicationComponent {
   Context context();
 
   Application application();
+  Repository repository();
+  PreferencesHelper preferencesHelper();
 }

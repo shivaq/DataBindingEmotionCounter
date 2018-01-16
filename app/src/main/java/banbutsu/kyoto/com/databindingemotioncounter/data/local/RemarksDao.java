@@ -1,8 +1,9 @@
-package banbutsu.kyoto.com.databindingemotioncounter.data;
+package banbutsu.kyoto.com.databindingemotioncounter.data.local;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import banbutsu.kyoto.com.databindingemotioncounter.data.model.RemarkEntry;
 import java.util.List;
 
 /**
@@ -14,6 +15,6 @@ public interface RemarksDao {
   @Insert
   void insert(RemarkEntry remarkEntry);
 
-  @Query("SELECT * FROM RemarkEntry WHERE emotion = :emotion")
+  @Query("SELECT * FROM remarks WHERE emotion = :emotion")
   List<RemarkEntry> findRemarksByEmotion(String emotion);
 }

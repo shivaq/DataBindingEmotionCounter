@@ -1,9 +1,11 @@
-package banbutsu.kyoto.com.databindingemotioncounter.data;
+package banbutsu.kyoto.com.databindingemotioncounter.data.local;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+import banbutsu.kyoto.com.databindingemotioncounter.data.model.CharacterEntry;
+import banbutsu.kyoto.com.databindingemotioncounter.data.model.RemarkEntry;
 
 /**
  * Created by Yasuaki on 2018/01/13.
