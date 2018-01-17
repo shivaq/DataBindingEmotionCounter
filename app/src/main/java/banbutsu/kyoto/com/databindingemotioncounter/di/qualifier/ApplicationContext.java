@@ -1,4 +1,4 @@
-package banbutsu.kyoto.com.databindingemotioncounter.di;
+package banbutsu.kyoto.com.databindingemotioncounter.di.qualifier;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,5 +10,5 @@ import javax.inject.Qualifier;
 
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ActivityContext {
+public @interface ApplicationContext {
 }

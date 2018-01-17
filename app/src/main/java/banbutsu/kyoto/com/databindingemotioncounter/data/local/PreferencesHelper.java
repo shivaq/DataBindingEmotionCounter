@@ -2,7 +2,7 @@ package banbutsu.kyoto.com.databindingemotioncounter.data.local;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import banbutsu.kyoto.com.databindingemotioncounter.di.ApplicationContext;
+import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.ApplicationContext;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 

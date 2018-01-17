@@ -1,32 +1,35 @@
 package banbutsu.kyoto.com.databindingemotioncounter.di.component;
 
 import android.app.Application;
-import android.content.Context;
 import banbutsu.kyoto.com.databindingemotioncounter.MyApplication;
-import banbutsu.kyoto.com.databindingemotioncounter.data.Repository;
-import banbutsu.kyoto.com.databindingemotioncounter.data.local.PreferencesHelper;
-import banbutsu.kyoto.com.databindingemotioncounter.di.ApplicationContext;
+import banbutsu.kyoto.com.databindingemotioncounter.di.module.ActivityBuilderModule;
 import banbutsu.kyoto.com.databindingemotioncounter.di.module.ApplicationModule;
+import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.AndroidInjectionModule;
 import javax.inject.Singleton;
 
 /**
  * Created by Yasuaki on 2018/01/11.
+ *
+ * ActivityBuilderModule: 各 AndroidComponent をまとめた Module
  */
 
 @Singleton
-@Component(modules = ApplicationModule.class)
+@Component(modules = {AndroidInjectionModule.class,
+    ApplicationModule.class,
+    ActivityBuilderModule.class})
 public interface ApplicationComponent {
 
-  // A kind of a list of contractor
+  // Component に Instance を紐付ける
+  @Component.Builder
+  interface Builder {
+
+    @BindsInstance
+    Builder application(Application application);
+
+    ApplicationComponent build();
+  }
+
   void inject(MyApplication myApplication);
-
-  // ActivityComponent が ApplicationComponent の提供するインスタンスを
-  // dependencies にて使えるようにするために、使用対象OBJを下記のように宣言する
-  @ApplicationContext
-  Context context();
-
-  Application application();
-  Repository repository();
-  PreferencesHelper preferencesHelper();
 }

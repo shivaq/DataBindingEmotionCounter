@@ -1,62 +1,52 @@
 package banbutsu.kyoto.com.databindingemotioncounter;
 
+import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import banbutsu.kyoto.com.databindingemotioncounter.di.component.ApplicationComponent;
 import banbutsu.kyoto.com.databindingemotioncounter.di.component.DaggerApplicationComponent;
-import banbutsu.kyoto.com.databindingemotioncounter.di.module.ApplicationModule;
 import com.facebook.stetho.Stetho;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+import javax.inject.Inject;
 import timber.log.Timber;
 
 /**
  * Created by Yasuaki on 2018/01/11.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends Application implements HasActivityInjector {
 
-  private ApplicationComponent mApplicationComponent;
+  @Inject
+  DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
 
   @Override
   public void onCreate() {
     super.onCreate();
+    DaggerApplicationComponent.builder()
+        .application(this)
+        .build()
+        .inject(this);
 
-    mApplicationComponent = DaggerApplicationComponent.builder()
-        .applicationModule(new ApplicationModule(this))
-        .build();
-
-    mApplicationComponent.inject(this);
-
+    // for timber
     if (BuildConfig.DEBUG) {
       Timber.uprootAll();
       Timber.plant(new Timber.DebugTree());
     }
-
-    // setup stetho
+    // for stetho
     Stetho.InitializerBuilder initializerBuilder =
         Stetho.newInitializerBuilder(this);
-
     initializerBuilder.enableWebKitInspector(
         Stetho.defaultInspectorModulesProvider(this));
-
     initializerBuilder.enableDumpapp(
         Stetho.defaultDumperPluginsProvider(this)
     );
-
     Stetho.Initializer initializer = initializerBuilder.build();
     Stetho.initialize(initializer);
   }
 
-  public ApplicationComponent getApplicationComponent() {
-    return mApplicationComponent;
-  }
 
-  // Needed to replace the component with a test specific one
-  public void setComponent(ApplicationComponent applicationComponent) {
-    mApplicationComponent = applicationComponent;
-  }
 
-  public static MyApplication get(Context context) {
-    return (MyApplication) context.getApplicationContext();
+  @Override
+  public DispatchingAndroidInjector<Activity> activityInjector() {
+    return activityDispatchingAndroidInjector;
   }
-
 }

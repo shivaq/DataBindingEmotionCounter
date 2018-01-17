@@ -2,9 +2,10 @@ package banbutsu.kyoto.com.databindingemotioncounter.di.module;
 
 import android.app.Application;
 import android.content.Context;
-import banbutsu.kyoto.com.databindingemotioncounter.di.ApplicationContext;
+import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.ApplicationContext;
 import dagger.Module;
 import dagger.Provides;
+import javax.inject.Singleton;
 
 /**
  * Created by Yasuaki on 2018/01/11.
@@ -13,22 +14,11 @@ import dagger.Provides;
 @Module
 public class ApplicationModule {
 
-  private final Application mApplication;
-
-  public ApplicationModule(Application application) {
-    mApplication = application;
-  }
-
   @Provides
+  @Singleton
   @ApplicationContext
-  Context provideContext() {
-    return mApplication;
+  Context provideContext(Application application) {
+    return application;
   }
-
-  @Provides
-  Application provideApplication() {
-    return mApplication;
-  }
-
 
 }
