@@ -1,16 +1,15 @@
-package banbutsu.kyoto.com.databindingemotioncounter.data.local;
+package banbutsu.kyoto.com.databindingemotioncounter.data.local.model;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import banbutsu.kyoto.com.databindingemotioncounter.data.model.RemarkEntry;
 import java.util.List;
 
 /**
  * Created by Yasuaki on 2018/01/13.
  */
 @Dao
-public interface RemarksDao {
+public interface RemarkDao {
 
   @Insert
   void insert(RemarkEntry remarkEntry);

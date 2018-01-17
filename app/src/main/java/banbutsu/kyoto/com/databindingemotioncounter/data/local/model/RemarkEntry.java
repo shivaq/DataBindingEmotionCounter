@@ -1,4 +1,4 @@
-package banbutsu.kyoto.com.databindingemotioncounter.data.model;
+package banbutsu.kyoto.com.databindingemotioncounter.data.local.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
@@ -13,6 +13,6 @@ public class RemarkEntry {
   @PrimaryKey(autoGenerate = true)
   public int id;
   public String emotion;
-  public String speech;
+  public String say;
 
 }

@@ -4,8 +4,8 @@
 //import android.arch.lifecycle.MutableLiveData;
 //import android.arch.lifecycle.ViewModel;
 //import banbutsu.kyoto.com.databindingemotioncounter.data.Repository;
-//import banbutsu.kyoto.com.databindingemotioncounter.data.model.CharacterEntry;
-//import banbutsu.kyoto.com.databindingemotioncounter.data.model.RemarkEntry;
+//import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.CharacterEntry;
+//import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry;
 //
 ///**
 // * Created by Yasuaki on 2018/01/14.

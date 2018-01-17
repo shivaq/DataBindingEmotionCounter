@@ -1,4 +1,4 @@
-package banbutsu.kyoto.com.databindingemotioncounter.data.model;
+package banbutsu.kyoto.com.databindingemotioncounter.data.local.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;

@@ -3,7 +3,6 @@ package banbutsu.kyoto.com.databindingemotioncounter.ui.main;
 import android.content.Context;
 import android.os.Bundle;
 import banbutsu.kyoto.com.databindingemotioncounter.R;
-import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.ApplicationContext;
 import banbutsu.kyoto.com.databindingemotioncounter.ui.base.BaseActivity;
 import javax.inject.Inject;
 
@@ -12,7 +11,6 @@ public class MainActivity extends BaseActivity {
   /******************************** Inject ****************************************/
   // Inject Presenter from an object graph
   @Inject
-  @ApplicationContext
   Context context;
 
 

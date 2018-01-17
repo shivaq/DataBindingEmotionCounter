@@ -1,8 +1,13 @@
 package banbutsu.kyoto.com.databindingemotioncounter.di.module;
 
 import android.app.Application;
+import android.arch.persistence.room.Room;
 import android.content.Context;
-import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.ApplicationContext;
+import banbutsu.kyoto.com.databindingemotioncounter.data.local.EmotionDatabase;
+import banbutsu.kyoto.com.databindingemotioncounter.data.local.PreferencesHelper;
+import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.DatabaseInfo;
+import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.PreferenceInfo;
+import banbutsu.kyoto.com.databindingemotioncounter.utils.Constants;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -16,9 +21,37 @@ public class ApplicationModule {
 
   @Provides
   @Singleton
-  @ApplicationContext
   Context provideContext(Application application) {
     return application;
   }
+
+  /************************** PreferencesHelper ****************************/
+  @Provides
+  @PreferenceInfo
+  String providePreferenceName() {
+    return Constants.PREF_FILE_NAME;
+  }
+
+  @Provides
+  @Singleton
+  PreferencesHelper providePreferencesHelper(PreferencesHelper preferencesHelper) {
+    return preferencesHelper;
+  }
+
+  /************************** DataBase **************************************/
+  @Provides
+  @DatabaseInfo
+  String provideDatabaseName() {
+    return Constants.DB_NAME;
+  }
+
+  @Provides
+  @Singleton
+  EmotionDatabase provideDatabase(@DatabaseInfo String dbName, Context context) {
+    return Room.databaseBuilder(context, EmotionDatabase.class, dbName)
+        .fallbackToDestructiveMigration().build();
+
+  }
+
 
 }

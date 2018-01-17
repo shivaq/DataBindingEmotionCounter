@@ -2,9 +2,9 @@ package banbutsu.kyoto.com.databindingemotioncounter.data;
 
 import android.arch.lifecycle.LiveData;
 import banbutsu.kyoto.com.databindingemotioncounter.MyExecutor;
-import banbutsu.kyoto.com.databindingemotioncounter.data.local.CharacterDao;
-import banbutsu.kyoto.com.databindingemotioncounter.data.local.RemarksDao;
-import banbutsu.kyoto.com.databindingemotioncounter.data.model.CharacterEntry;
+import banbutsu.kyoto.com.databindingemotioncounter.data.local.dao.CharacterDao;
+import banbutsu.kyoto.com.databindingemotioncounter.data.local.dao.RemarksDao;
+import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.CharacterEntry;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
