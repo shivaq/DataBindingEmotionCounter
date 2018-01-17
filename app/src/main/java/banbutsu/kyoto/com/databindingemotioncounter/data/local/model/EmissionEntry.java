@@ -4,12 +4,14 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 /**
  * Created by Yasuaki on 2018/01/17.
  */
 @Entity(tableName = "emissions",
+    indices={@Index("characterId"),@Index("emotionId")},
     foreignKeys = {
         @ForeignKey(
             entity = CharacterEntry.class,
