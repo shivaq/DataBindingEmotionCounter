@@ -15,6 +15,17 @@
     <item name="android:clickable">true</item>
   </style>
 
+  <style name="emotion_button_small">
+    <item name="android:layout_width">60dp</item>
+    <item name="android:layout_height">60dp</item>
+  </style>
+
+  <style name="emotion_linear_layout">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:background">@color/yellow09</item>
+  </style>
+
   <style name="emotion_display">
     <item name="android:layout_width">30dp</item>
     <item name="android:layout_height">30dp</item>

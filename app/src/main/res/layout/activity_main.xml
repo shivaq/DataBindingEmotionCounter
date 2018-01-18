@@ -205,15 +205,25 @@
       />
     <!--////////////////////////////////////////////////////////-->
     <ImageView
-      android:id="@+id/img_libido"
-      style="@style/emotion_button"
-      android:layout_marginBottom="@dimen/top_bottom8"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/img_self_respect"
-      app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/ic_libido_to_left"
-      />
-
+    android:id="@+id/img_libido"
+    style="@style/emotion_button"
+    android:layout_marginBottom="@dimen/top_bottom8"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/img_self_respect"
+    app:layout_constraintStart_toStartOf="parent"
+    app:srcCompat="@drawable/ic_libido_to_left"
+    />
+    <!--<ImageButton-->
+      <!--android:id="@+id/img_libido"-->
+      <!--android:layout_width="wrap_content"-->
+      <!--android:layout_height="wrap_content"-->
+      <!--android:layout_marginBottom="@dimen/top_bottom8"-->
+      <!--android:paddingBottom="16dp"-->
+      <!--app:layout_constraintBottom_toBottomOf="parent"-->
+      <!--app:layout_constraintEnd_toStartOf="@+id/img_self_respect"-->
+      <!--app:layout_constraintStart_toStartOf="parent"-->
+      <!--app:srcCompat="@drawable/ic_libido_to_left"-->
+      <!--/>-->
     <ImageView
       android:id="@+id/img_self_respect"
       style="@style/emotion_button"
