@@ -17,4 +17,13 @@ public class PreferencesHelper {
     sharedPreferences =
         context.getSharedPreferences(preferenceFileName, Context.MODE_PRIVATE);
   }
+
+  private static final String IS_FIRST_RUN = "IS_FIRST_RUN";
+  public boolean isFirstLaunch() {
+    boolean isFirstLaunch = sharedPreferences.getBoolean(IS_FIRST_RUN, true);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.putBoolean(IS_FIRST_RUN, false);
+    editor.apply();
+    return isFirstLaunch;
+  }
 }
