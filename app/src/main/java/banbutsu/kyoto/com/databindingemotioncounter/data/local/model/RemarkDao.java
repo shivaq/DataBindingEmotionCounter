@@ -14,6 +14,9 @@ import java.util.List;
 public interface RemarkDao {
 
   @Insert
+  void bulkInsert(List<RemarkEntry> remarkEntries);
+
+  @Insert
   void insert(RemarkEntry remarkEntry);
 
   @Update

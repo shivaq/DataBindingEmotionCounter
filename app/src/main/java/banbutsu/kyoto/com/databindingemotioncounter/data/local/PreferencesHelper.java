@@ -22,7 +22,7 @@ public class PreferencesHelper {
   public boolean isFirstLaunch() {
     boolean isFirstLaunch = sharedPreferences.getBoolean(IS_FIRST_RUN, true);
     SharedPreferences.Editor editor = sharedPreferences.edit();
-    editor.putBoolean(IS_FIRST_RUN, false);
+    editor.putBoolean(IS_FIRST_RUN, true);
     editor.apply();
     return isFirstLaunch;
   }

@@ -10,6 +10,7 @@ import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.EmissionDao
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.EmotionDao;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkDao;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry;
+import banbutsu.kyoto.com.databindingemotioncounter.utils.DbUtility;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -52,7 +53,11 @@ public class Repository {
     return remarkDao.getRemarkByEmotion(emotion);
   }
 
-  public boolean isFirstLaunch() {
-    return preferencesHelper.isFirstLaunch();
+  public void firstLaunchCheck() {
+    if (preferencesHelper.isFirstLaunch()) {
+      executor.diskIO().execute(() ->{
+        remarkDao.bulkInsert(DbUtility.getDefaultRemarks());
+      });
+    }
   }
 }

@@ -44,8 +44,8 @@ public class ApplicationModule {
 
   @Provides
   @Singleton
-  EmotionDatabase provideDatabase(@DatabaseInfo String dbName, Context context) {
-    return Room.databaseBuilder(context, EmotionDatabase.class, dbName).build();
+  public EmotionDatabase provideDatabase(@DatabaseInfo String dbName, Application application) {
+    return Room.databaseBuilder(application, EmotionDatabase.class, dbName).build();
   }
 
   @Singleton

@@ -30,7 +30,6 @@ public class RemarksActivity extends BaseActivity implements RemarkRvAdapter.Rem
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-//    setContentView(R.layout.activity_list);
     binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
     viewModel = ViewModelProviders.of(this, viewModelFactory).get(RemarkViewModel.class);
     adapter = new RemarkRvAdapter(this);

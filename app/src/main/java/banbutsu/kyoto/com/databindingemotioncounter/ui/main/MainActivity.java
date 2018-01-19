@@ -34,10 +34,11 @@ public class MainActivity extends BaseActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-//    setContentView(R.layout.activity_main);
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
     viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel.class);
+
+    viewModel.firstLaunchCheck();
+
 //
 //    viewModel.getCharacter().observe(this, characterEntry -> {
 //      if (characterEntry != null) {

@@ -51,4 +51,9 @@ public class RemarkEntry {
         ", say='" + say + '\'' +
         '}';
   }
+
+  public RemarkEntry(String emotion, String say) {
+    this.emotion = emotion;
+    this.say = say;
+  }
 }

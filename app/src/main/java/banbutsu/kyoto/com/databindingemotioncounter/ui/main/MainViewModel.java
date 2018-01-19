@@ -39,7 +39,9 @@ public class MainViewModel extends ViewModel {
     return remark;
   }
 
-  public boolean isFirstLaunch(){
-    return repository.isFirstLaunch();
+
+  public void firstLaunchCheck() {
+    repository.firstLaunchCheck();
   }
+
 }
