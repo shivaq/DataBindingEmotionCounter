@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 import banbutsu.kyoto.com.databindingemotioncounter.R;
 import banbutsu.kyoto.com.databindingemotioncounter.databinding.ActivityMainBinding;
@@ -38,17 +39,29 @@ public class MainActivity extends BaseActivity {
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     binding.setMain(this);
     viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel.class);
-
     viewModel.firstLaunchCheck();
 
-//    viewModel.getEmissionOfThisDay();
+    viewModel.getTripleEmotions().observe(this, emotions -> {
+      if (emotions != null) {
+        binding.imgEmotion1.setImageDrawable(emotions.getDrawable1());
+        binding.tvEmotion1.setText(emotions.getEmotion1());
+        binding.imgEmotion2.setImageDrawable(emotions.getDrawable2());
+        binding.tvEmotion2.setText(emotions.getEmotion2());
+        binding.imgEmotion3.setImageDrawable(emotions.getDrawable3());
+        binding.tvEmotion3.setText(emotions.getEmotion3());
+        String mixedEmotion1 =
+            (emotions.getMixedEmotion1()).equals("") ? "" : "(" + emotions.getMixedEmotion1() + ")";
+        String mixedEmotion2 =
+            (emotions.getMixedEmotion2()).equals("") ? "" : "(" + emotions.getMixedEmotion2() + ")";
 
-//
-//    viewModel.getCharacter().observe(this, characterEntry -> {
-//      if (characterEntry != null) {
-//        binding.tvBalloon1.setText(characterEntry.name);
-//      }
-//    });
+        binding.tvMixedEmotion1.setText(mixedEmotion1);
+        binding.tvMixedEmotion2.setText(mixedEmotion2);
+        binding.tvPlus1
+            .setVisibility(emotions.getEmotion2().equals("") ? View.INVISIBLE : View.VISIBLE);
+        binding.tvPlus2
+            .setVisibility(emotions.getEmotion3().equals("") ? View.INVISIBLE : View.VISIBLE);
+      }
+    });
   }
 
   @Override
@@ -75,7 +88,7 @@ public class MainActivity extends BaseActivity {
   }
 
   public void speak(String emotion) {
-    showToast(emotion);
+    viewModel.setEmotions(emotion);
   }
 
   /************************* others ********************************************/
