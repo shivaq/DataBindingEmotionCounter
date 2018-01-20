@@ -4,7 +4,9 @@
   xmlns:tools="http://schemas.android.com/tools"
   >
   <data>
-
+    <variable
+      name="main"
+      type="banbutsu.kyoto.com.databindingemotioncounter.ui.main.MainActivity"/>
   </data>
 
   <android.support.constraint.ConstraintLayout
@@ -133,6 +135,7 @@
       android:id="@+id/img_trust"
       style="@style/emotion_button"
       android:layout_marginStart="@dimen/edge16"
+      android:onClick='@{() -> main.speak("trust")}'
       app:layout_constraintBottom_toTopOf="@+id/img_anger"
       app:layout_constraintEnd_toStartOf="@+id/img_disgust"
       app:layout_constraintStart_toStartOf="parent"
@@ -142,6 +145,7 @@
       android:id="@+id/img_joy"
       style="@style/emotion_button"
       app:layout_constraintBottom_toTopOf="@+id/img_anger"
+      android:onClick='@{() -> main.speak("joy")}'
       app:layout_constraintEnd_toStartOf="@+id/img_anticipation"
       app:layout_constraintStart_toEndOf="@+id/img_anger"
       app:srcCompat="@drawable/ic_face_joy_selected"
@@ -149,6 +153,7 @@
 
     <ImageView
       android:id="@+id/img_fear"
+      android:onClick='@{() -> main.speak("fear")}'
       style="@style/emotion_button"
       app:layout_constraintBottom_toTopOf="@+id/img_anger"
       app:layout_constraintEnd_toStartOf="@+id/img_surprise"
@@ -160,6 +165,7 @@
       android:id="@+id/img_sadness"
       style="@style/emotion_button"
       android:layout_marginEnd="@dimen/edge16"
+      android:onClick='@{() -> main.speak("sadness")}'
       app:layout_constraintBottom_toTopOf="@+id/img_anger"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@+id/img_anticipation"
@@ -169,6 +175,7 @@
     <ImageView
       android:id="@+id/img_anger"
       style="@style/emotion_button"
+      android:onClick='@{() -> main.speak("anger")}'
       android:layout_marginStart="@dimen/edge16"
       app:layout_constraintBottom_toTopOf="@+id/img_libido"
       app:layout_constraintEnd_toStartOf="@+id/img_disgust"
@@ -179,6 +186,7 @@
     <ImageView
       android:id="@+id/img_disgust"
       style="@style/emotion_button"
+      android:onClick='@{() -> main.speak("disgust")}'
       app:layout_constraintBottom_toTopOf="@+id/img_libido"
       app:layout_constraintEnd_toStartOf="@+id/img_anticipation"
       app:layout_constraintStart_toEndOf="@+id/img_anger"
@@ -187,6 +195,7 @@
 
     <ImageView
       android:id="@+id/img_anticipation"
+      android:onClick='@{() -> main.speak("anticipation")}'
       style="@style/emotion_button"
       app:layout_constraintBottom_toTopOf="@+id/img_libido"
       app:layout_constraintEnd_toStartOf="@+id/img_surprise"
@@ -197,6 +206,7 @@
     <ImageView
       android:id="@+id/img_surprise"
       style="@style/emotion_button"
+      android:onClick='@{() -> main.speak("surprise")}'
       android:layout_marginEnd="@dimen/edge16"
       app:layout_constraintBottom_toTopOf="@+id/img_libido"
       app:layout_constraintEnd_toEndOf="parent"
@@ -205,27 +215,29 @@
       />
     <!--////////////////////////////////////////////////////////-->
     <ImageView
-    android:id="@+id/img_libido"
-    style="@style/emotion_button"
-    android:layout_marginBottom="@dimen/top_bottom8"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/img_self_respect"
-    app:layout_constraintStart_toStartOf="parent"
-    app:srcCompat="@drawable/ic_libido_to_left"
-    />
+      android:id="@+id/img_libido"
+      style="@style/emotion_button"
+      android:onClick='@{() -> main.speak("libido")}'
+      android:layout_marginBottom="@dimen/top_bottom8"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/img_self_respect"
+      app:layout_constraintStart_toStartOf="parent"
+      app:srcCompat="@drawable/ic_libido_to_left"
+      />
     <!--<ImageButton-->
-      <!--android:id="@+id/img_libido"-->
-      <!--android:layout_width="wrap_content"-->
-      <!--android:layout_height="wrap_content"-->
-      <!--android:layout_marginBottom="@dimen/top_bottom8"-->
-      <!--android:paddingBottom="16dp"-->
-      <!--app:layout_constraintBottom_toBottomOf="parent"-->
-      <!--app:layout_constraintEnd_toStartOf="@+id/img_self_respect"-->
-      <!--app:layout_constraintStart_toStartOf="parent"-->
-      <!--app:srcCompat="@drawable/ic_libido_to_left"-->
-      <!--/>-->
+    <!--android:id="@+id/img_libido"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/top_bottom8"-->
+    <!--android:paddingBottom="16dp"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/img_self_respect"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:srcCompat="@drawable/ic_libido_to_left"-->
+    <!--/>-->
     <ImageView
       android:id="@+id/img_self_respect"
+      android:onClick='@{() -> main.speak("self_respect")}'
       style="@style/emotion_button"
       android:layout_marginBottom="@dimen/top_bottom8"
       app:layout_constraintBottom_toBottomOf="parent"
@@ -236,6 +248,7 @@
 
     <ImageView
       android:id="@+id/img_shame"
+      android:onClick='@{() -> main.speak("shame")}'
       style="@style/emotion_button"
       android:layout_marginBottom="@dimen/top_bottom8"
       app:layout_constraintBottom_toBottomOf="parent"
@@ -247,6 +260,7 @@
     <TextView
       android:id="@+id/tv_nothing"
       style="@style/emotion_button"
+      android:onClick='@{() -> main.speak("nothing")}'
       android:layout_marginBottom="@dimen/top_bottom8"
       android:paddingTop="@dimen/top_bottom8"
       android:text="無"

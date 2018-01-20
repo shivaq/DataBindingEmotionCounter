@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 import banbutsu.kyoto.com.databindingemotioncounter.R;
 import banbutsu.kyoto.com.databindingemotioncounter.databinding.ActivityMainBinding;
 import banbutsu.kyoto.com.databindingemotioncounter.ui.base.BaseActivity;
@@ -35,9 +36,12 @@ public class MainActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+    binding.setMain(this);
     viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel.class);
 
     viewModel.firstLaunchCheck();
+
+//    viewModel.getEmissionOfThisDay();
 
 //
 //    viewModel.getCharacter().observe(this, characterEntry -> {
@@ -64,5 +68,24 @@ public class MainActivity extends BaseActivity {
         return true;
     }
     return super.onOptionsItemSelected(item);
+  }
+
+  public void putRemark(String emotion) {
+
+  }
+
+  public void speak(String emotion) {
+    showToast(emotion);
+  }
+
+  /************************* others ********************************************/
+  private Toast toast;
+
+  public void showToast(String message) {
+    if (toast != null) {
+      toast.cancel();
+    }
+    toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+    toast.show();
   }
 }

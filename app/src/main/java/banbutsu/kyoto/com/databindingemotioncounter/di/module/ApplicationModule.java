@@ -5,8 +5,8 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.EmotionDatabase;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.CharacterDao;
-import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.EmissionDao;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.EmotionDao;
+import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.MonologueDao;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkDao;
 import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.DatabaseInfo;
 import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.PreferenceInfo;
@@ -56,7 +56,7 @@ public class ApplicationModule {
 
   @Singleton
   @Provides
-  public EmissionDao provideEmissionDao(EmotionDatabase db) {
+  public MonologueDao provideEmissionDao(EmotionDatabase db) {
     return db.emissionDao();
   }
 

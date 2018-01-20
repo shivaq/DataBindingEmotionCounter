@@ -11,8 +11,9 @@ import android.arch.persistence.room.Update;
 public interface EmotionDao {
 
   @Insert
-  void insert(EmotionEntry emotionEntry);
+  long insert(EmotionEntry emotionEntry);
 
   @Update
   void update(EmotionEntry emotionEntry);
+
 }

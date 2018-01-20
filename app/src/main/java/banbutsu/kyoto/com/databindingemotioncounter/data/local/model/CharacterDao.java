@@ -13,7 +13,7 @@ import java.util.List;
 public interface CharacterDao {
 
   @Insert
-  void insert(CharacterEntry characterEntry);
+  long insert(CharacterEntry characterEntry);
 
   @Query("SELECT * FROM characters")
   List<CharacterEntry> getAllCharacters();
