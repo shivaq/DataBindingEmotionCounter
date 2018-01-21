@@ -60,7 +60,7 @@ public class Utility {
       case SELF_RESPECT_E:
         drawableId = R.drawable.ic_face_self_respect_selected;
         break;
-      case "nothing":
+      case NOTHING_E:
       default:
         drawableId = R.drawable.ic_normal_woman_bob_collar1;
         break;
@@ -104,7 +104,7 @@ public class Utility {
       case SELF_RESPECT_E:
         emotionStr = SELF_RESPECT;
         break;
-      case "nothing":
+      case NOTHING_E:
       default:
         emotionStr = "無";
         break;
@@ -118,61 +118,93 @@ public class Utility {
       case JOY:
         if (em2.equals(TRUST)) {
           mixedEmotion = LOVE;
-        }else if(em2.equals(ANTICIPATION)){
+        } else if (em2.equals(ANTICIPATION)) {
           mixedEmotion = OPTIMISM;
         }
         break;
       case TRUST:
         if (em2.equals(JOY)) {
           mixedEmotion = LOVE;
-        }else if(em2.equals(FEAR)){
+        } else if (em2.equals(FEAR)) {
           mixedEmotion = SUBMISSION;
         }
         break;
       case FEAR:
         if (em2.equals(TRUST)) {
           mixedEmotion = SUBMISSION;
-        }else if(em2.equals(SURPRISE)){
+        } else if (em2.equals(SURPRISE)) {
           mixedEmotion = AWE;
         }
         break;
       case ANTICIPATION:
         if (em2.equals(JOY)) {
           mixedEmotion = OPTIMISM;
-        }else if(em2.equals(ANGER)){
+        } else if (em2.equals(ANGER)) {
           mixedEmotion = AGGRESSIVENESS;
         }
         break;
       case SADNESS:
         if (em2.equals(DISGUST)) {
           mixedEmotion = REMORSE;
-        }else if(em2.equals(SURPRISE)){
+        } else if (em2.equals(SURPRISE)) {
           mixedEmotion = DISAPPOINTMENT;
         }
         break;
       case DISGUST:
         if (em2.equals(SADNESS)) {
           mixedEmotion = REMORSE;
-        }else if(em2.equals(ANGER)){
+        } else if (em2.equals(ANGER)) {
           mixedEmotion = CONTEMPT;
         }
         break;
       case ANGER:
         if (em2.equals(ANTICIPATION)) {
           mixedEmotion = AGGRESSIVENESS;
-        }else if(em2.equals(DISGUST)){
+        } else if (em2.equals(DISGUST)) {
           mixedEmotion = CONTEMPT;
         }
         break;
       case SURPRISE:
         if (em2.equals(FEAR)) {
           mixedEmotion = AWE;
-        }else if(em2.equals(SADNESS)){
+        } else if (em2.equals(SADNESS)) {
           mixedEmotion = DISAPPOINTMENT;
         }
         break;
     }
     return mixedEmotion;
+  }
+
+  public static String getMixedEmotionRawStr(String mixedEmotion) {
+    String rawEmotion;
+    switch (mixedEmotion) {
+      case OPTIMISM:
+        rawEmotion = OPTIMISM_E;
+        break;
+      case DISAPPOINTMENT:
+        rawEmotion = DISAPPOINTMENT_E;
+        break;
+      case LOVE:
+        rawEmotion = LOVE_E;
+        break;
+      case REMORSE:
+        rawEmotion = REMORSE_E;
+        break;
+      case SUBMISSION:
+        rawEmotion = SUBMISSION_E;
+        break;
+      case CONTEMPT:
+        rawEmotion = CONTEMPT_E;
+        break;
+      case AGGRESSIVENESS:
+        rawEmotion = AGGRESSIVENESS_E;
+        break;
+      case AWE:
+      default:
+        rawEmotion = AWE_E;
+        break;
+    }
+    return rawEmotion;
   }
 
   @Retention(RetentionPolicy.SOURCE)
@@ -222,4 +254,5 @@ public class Utility {
   public static final String LIBIDO_E = "LIBIDO";
   public static final String SHAME_E = "SHAME";
   public static final String SELF_RESPECT_E = "SELF_RESPECT";
+  public static final String NOTHING_E = "NOTHING";
 }

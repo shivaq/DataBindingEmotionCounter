@@ -19,7 +19,7 @@ import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry
  *
  */
 @Database(entities = {CharacterEntry.class, MonologueEntry.class, EmotionEntry.class,
-    RemarkEntry.class}, version = 3)
+    RemarkEntry.class}, version = 5)
 public abstract class EmotionDatabase extends RoomDatabase {
 
   public abstract CharacterDao characterDao();

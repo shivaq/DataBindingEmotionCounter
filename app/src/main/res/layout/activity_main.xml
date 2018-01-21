@@ -17,47 +17,72 @@
     android:background="@color/light_blue02"
     tools:context="banbutsu.kyoto.com.databindingemotioncounter.ui.main.MainActivity">
 
-    <TextView
-      android:id="@+id/tv_balloon3"
+    <FrameLayout
+      android:id="@+id/frame_balloon3"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="10dp"
+      android:paddingStart="@dimen/edge16"
+      android:paddingEnd="@dimen/edge16"
       android:background="@drawable/shape_balloon"
-      app:layout_constraintBottom_toTopOf="@+id/tv_balloon2"
-      app:layout_constraintEnd_toEndOf="@+id/tv_balloon1"
+      android:visibility="invisible"
+      app:layout_constraintBottom_toTopOf="@+id/frame_balloon2"
+      app:layout_constraintEnd_toEndOf="@+id/frame_balloon1"
       app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toStartOf="parent"
-      tools:text="sugoi"
-      />
-    <TextView
-      android:id="@+id/tv_balloon2"
+      app:layout_constraintStart_toStartOf="parent">
+      <TextView
+        android:id="@+id/tv_balloon3"
+        style="@style/tv_balloon"
+        tools:text="sugoisdfasdfssssssssssssssssssssssssssssssdfasdfsdfasdfsdfsssssssssssssssss"
+        />
+    </FrameLayout>
+
+    <FrameLayout
+      android:id="@+id/frame_balloon2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="10dp"
+      android:paddingStart="@dimen/edge16"
+      android:paddingEnd="@dimen/edge16"
       android:background="@drawable/shape_balloon"
-      app:layout_constraintBottom_toTopOf="@+id/tv_balloon1"
-      app:layout_constraintEnd_toEndOf="@+id/tv_balloon1"
+      android:visibility="invisible"
+      app:layout_constraintBottom_toTopOf="@+id/frame_balloon1"
+      app:layout_constraintEnd_toEndOf="@+id/frame_balloon1"
       app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toStartOf="parent"
-      tools:text="sugoi"
-      />
-    <TextView
-      android:id="@+id/tv_balloon1"
+      app:layout_constraintStart_toStartOf="parent">
+      <TextView
+        android:id="@+id/tv_balloon2"
+        style="@style/tv_balloon"
+        tools:text="sugoisdfasdfssssssssssssssssssssssssssssssdfasdfsdfasdfsdfsssssssssssssssss"
+        />
+    </FrameLayout>
+
+    <FrameLayout
+      android:id="@+id/frame_balloon1"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="10dp"
-      android:layout_marginEnd="20dp"
+      android:paddingStart="@dimen/edge16"
+      android:paddingEnd="@dimen/edge16"
       android:background="@drawable/shape_balloon"
+      android:visibility="invisible"
       app:layout_constraintBottom_toBottomOf="@+id/balloon_triangle"
       app:layout_constraintEnd_toEndOf="@+id/character_right"
       app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toStartOf="parent"
-      tools:text="sugoi"
-      />
+      app:layout_constraintStart_toStartOf="parent">
+      <TextView
+        android:id="@+id/tv_balloon1"
+        style="@style/tv_balloon"
+        tools:text="sugoi"
+        />
+    </FrameLayout>
+
+
     <ImageView
       android:id="@+id/balloon_triangle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:visibility="invisible"
       app:layout_constraintBottom_toTopOf="@+id/character_right"
       app:layout_constraintEnd_toEndOf="@+id/character_right"
       app:layout_constraintStart_toStartOf="@+id/character_right"
@@ -166,25 +191,25 @@
       />
 
     <!--<TextView-->
-      <!--android:id="@+id/tv_emotion1"-->
-      <!--style="@style/tv_base"-->
-      <!--android:layout_width="wrap_content"-->
-      <!--android:layout_height="wrap_content"-->
-      <!--android:layout_marginStart="@dimen/edge16"-->
-      <!--android:text="@{emotion1.emotion}"-->
-      <!--app:layout_constraintBottom_toTopOf="@+id/img_emotion1"-->
-      <!--app:layout_constraintEnd_toStartOf="@+id/character_right"-->
-      <!--tools:text="喜び"-->
-      <!--/>-->
+    <!--android:id="@+id/tv_emotion1"-->
+    <!--style="@style/tv_base"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="@dimen/edge16"-->
+    <!--android:text="@{emotion1.emotion}"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/img_emotion1"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/character_right"-->
+    <!--tools:text="喜び"-->
+    <!--/>-->
     <!--<ImageView-->
-      <!--android:id="@+id/img_emotion1"-->
-      <!--style="@style/emotion_display"-->
-      <!--android:src="@{emotion1.drawable}"-->
-      <!--app:layout_constraintBottom_toBottomOf="@+id/character_right"-->
-      <!--app:layout_constraintEnd_toEndOf="@+id/tv_emotion1"-->
-      <!--app:layout_constraintStart_toStartOf="@+id/tv_emotion1"-->
-      <!--app:layout_constraintTop_toTopOf="@+id/character_right"-->
-      <!--/>-->
+    <!--android:id="@+id/img_emotion1"-->
+    <!--style="@style/emotion_display"-->
+    <!--android:src="@{emotion1.drawable}"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/character_right"-->
+    <!--app:layout_constraintEnd_toEndOf="@+id/tv_emotion1"-->
+    <!--app:layout_constraintStart_toStartOf="@+id/tv_emotion1"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/character_right"-->
+    <!--/>-->
     <TextView
       android:id="@+id/tv_mixed_emotion1"
       style="@style/tv_base"
@@ -328,7 +353,7 @@
       style="@style/emotion_button"
       android:layout_marginBottom="@dimen/top_bottom8"
       android:paddingTop="@dimen/top_bottom8"
-      android:onClick='@{() -> main.speak("nothing")}'
+      android:onClick='@{() -> main.speak("NOTHING")}'
       android:text="無"
       android:textAlignment="center"
       android:textSize="50sp"
