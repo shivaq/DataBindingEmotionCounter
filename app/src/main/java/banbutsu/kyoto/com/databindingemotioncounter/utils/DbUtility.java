@@ -60,6 +60,7 @@ public class DbUtility {
     // 愛
     remarkEntries.add(new RemarkEntry(Utility.LOVE_E, "好き好き大好き超愛してる"));
     remarkEntries.add(new RemarkEntry(Utility.LOVE_E, "べ、べつにあんたのことなんか...   \uD83D\uDC97"));
+    remarkEntries.add(new RemarkEntry(Utility.LOVE_E, "やあ、また会ったねベイビー？"));
 
     // 後悔
     remarkEntries.add(new RemarkEntry(Utility.REMORSE_E, "なんであんなことしちゃったかな..."));

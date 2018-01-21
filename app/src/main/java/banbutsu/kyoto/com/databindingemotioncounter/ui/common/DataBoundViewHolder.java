@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
  * A generic ViewHolder that works with a {@link ViewDataBinding}.
  * @param <T> The type of the ViewDataBinding.
  *
- * ViewDataBinding は、View クラス が DataBinding と紐付いたもの。
- * Activity の onCreate に DataBindingUtil.inflate で作られるのも ViewDataBinding クラス
+ * アダプタ でレイアウトファイル等から ViewDataBinding を実装してから、
+ * コンストラクタに渡されてくる
  */
 public class DataBoundViewHolder<T extends ViewDataBinding> extends RecyclerView.ViewHolder {
 
@@ -19,3 +19,18 @@ public class DataBoundViewHolder<T extends ViewDataBinding> extends RecyclerView
     this.binding = binding;
   }
 }
+
+//// 抽象クラスを経由させずないパターンの DataBinding 対応 ViewHolder
+//public static class ItemViewHolder extends RecyclerView.ViewHolder {
+//  private ViewDataBinding mBinding;
+//
+//  public ItemViewHolder(View v) {
+//    super(v);
+//    // Bind処理
+//    mBinding = DataBindingUtil.bindObjToItem(v);
+//  }
+//
+//  public ViewDataBinding getBinding() {
+//    return mBinding;
+//  }
+//}

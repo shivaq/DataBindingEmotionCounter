@@ -4,25 +4,25 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools">
 
-<data>
-  <variable
-    name = "remark"
-    type="banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry"/>
-</data>
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+  <data>
+    <variable
+      name="remark"
+      type="banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry"/>
+  </data>
+  <FrameLayout
+    android:id="@+id/frame_balloon_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:orientation="horizontal">
-
+    android:paddingStart="@dimen/edge16"
+    android:paddingEnd="@dimen/edge16"
+    android:background="@drawable/shape_balloon"
+    >
     <TextView
-      android:id="@+id/textView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="10dp"
+      android:id="@+id/tv_item"
+      style="@style/tv_balloon"
       android:text="@{remark.say}"
-      android:background="@drawable/shape_balloon"
       tools:text="やあ、また会ったねベイビー？"
       />
-  </LinearLayout>
+  </FrameLayout>
 </layout>

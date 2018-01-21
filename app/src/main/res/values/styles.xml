@@ -23,7 +23,7 @@
   <style name="emotion_linear_layout">
     <item name="android:layout_width">0dp</item>
     <item name="android:layout_height">wrap_content</item>
-    <item name="android:background">@color/yellow09</item>
+    <item name="android:background">@color/keyboard_back</item>
   </style>
 
   <style name="emotion_display">

@@ -1,4 +1,4 @@
-package banbutsu.kyoto.com.databindingemotioncounter.ui.list;
+package banbutsu.kyoto.com.databindingemotioncounter.ui.remarks;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
@@ -11,6 +11,7 @@ import banbutsu.kyoto.com.databindingemotioncounter.databinding.ActivityListBind
 import banbutsu.kyoto.com.databindingemotioncounter.ui.base.BaseActivity;
 import java.util.Collections;
 import javax.inject.Inject;
+import timber.log.Timber;
 
 public class RemarksActivity extends BaseActivity implements RemarkRvAdapter.RemarkRvCallback {
 
@@ -31,6 +32,7 @@ public class RemarksActivity extends BaseActivity implements RemarkRvAdapter.Rem
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
+    binding.setRemark(this);
     viewModel = ViewModelProviders.of(this, viewModelFactory).get(RemarkViewModel.class);
     adapter = new RemarkRvAdapter(this);
     binding.rvRemarkList.setAdapter(adapter);
@@ -42,7 +44,8 @@ public class RemarksActivity extends BaseActivity implements RemarkRvAdapter.Rem
   }
 
   public void displayRemarks(String emotion) {
-    viewModel.getRemark(emotion).observe(this, remarkList -> {
+    Timber.d("RemarksActivity:displayRemarks: ");
+    viewModel.getRemarksByEmotion(emotion).observe(this, remarkList -> {
       if (remarkList != null) {
         adapter.replaceWithDiffUtil(remarkList);
       } else {

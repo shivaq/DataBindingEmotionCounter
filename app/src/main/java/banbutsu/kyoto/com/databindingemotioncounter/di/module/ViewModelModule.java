@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import banbutsu.kyoto.com.databindingemotioncounter.di.qualifier.ViewModelKey;
 import banbutsu.kyoto.com.databindingemotioncounter.ui.common.EmotionViewModelFactory;
-import banbutsu.kyoto.com.databindingemotioncounter.ui.list.RemarkViewModel;
+import banbutsu.kyoto.com.databindingemotioncounter.ui.remarks.RemarkViewModel;
 import banbutsu.kyoto.com.databindingemotioncounter.ui.main.MainViewModel;
 import dagger.Binds;
 import dagger.Module;

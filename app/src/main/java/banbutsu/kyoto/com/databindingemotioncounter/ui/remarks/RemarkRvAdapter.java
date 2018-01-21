@@ -1,4 +1,4 @@
-package banbutsu.kyoto.com.databindingemotioncounter.ui.list;
+package banbutsu.kyoto.com.databindingemotioncounter.ui.remarks;
 
 import android.databinding.DataBindingUtil;
 import android.view.LayoutInflater;
@@ -21,8 +21,20 @@ public class RemarkRvAdapter extends DataBoundRvAdapter<RemarkEntry, RvItemRemar
     this.remarkRvCallback = remarkRvCallback;
   }
 
+  /**
+   * ・アイテムのレイアウトから ViewBinding を生成させ、
+   * アイテム内の 各View にクリックListener等をセット。
+   *
+   * ・返り値 の ViewBinding を RvAdapter の抽象クラスを経由させる
+   *
+   * ・ViewHolder のコンストラクタの引数に ViewBinding が渡される
+   * @param parent
+   * @return
+   */
   @Override
   protected RvItemRemarkListBinding createBinding(ViewGroup parent) {
+
+    // RecyclerView のアイテムの ViewBinding を取得
     RvItemRemarkListBinding binding =
         DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
             R.layout.rv_item_remark_list, parent, false);
@@ -37,7 +49,9 @@ public class RemarkRvAdapter extends DataBoundRvAdapter<RemarkEntry, RvItemRemar
   }
 
   @Override
-  protected void bind(RvItemRemarkListBinding binding, RemarkEntry remark) {
+  protected void bindObjToItem(RvItemRemarkListBinding binding, RemarkEntry remark) {
+    // RvItem から <data> 内のアイテムにアクセスできるようにするため、
+    // ViewDataBinding に OBJ を渡す
     binding.setRemark(remark);
   }
 

@@ -16,7 +16,7 @@ import banbutsu.kyoto.com.databindingemotioncounter.R;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry;
 import banbutsu.kyoto.com.databindingemotioncounter.databinding.ActivityMainBinding;
 import banbutsu.kyoto.com.databindingemotioncounter.ui.base.BaseActivity;
-import banbutsu.kyoto.com.databindingemotioncounter.ui.list.RemarksActivity;
+import banbutsu.kyoto.com.databindingemotioncounter.ui.remarks.RemarksActivity;
 import banbutsu.kyoto.com.databindingemotioncounter.utils.Utility;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity {
   private List<RemarkEntry> self_respectRemarks = new ArrayList<>();
   private List<RemarkEntry> nothingRemarks = new ArrayList<>();
 
+  ///////////////////////////  ライフサイクル達   /////////////////////////////////
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -93,12 +94,13 @@ public class MainActivity extends BaseActivity {
     return super.onOptionsItemSelected(item);
   }
 
+  ///////////////////////////  ViewModel とのやり取り   /////////////////////////////////
   public void speak(String emotion) {
     viewModel.setEmotions(emotion);
   }
 
   private void subscribeToRemarkLists() {
-    viewModel.getRemarksByEmotion(Utility.JOY_E).observe(this, remarkList -> {
+    viewModel.getRemarksByEmotion(getString(R.string.joy)).observe(this, remarkList -> {
       if (remarkList != null) {
         joyRemarks.clear();
         joyRemarks.addAll(remarkList);

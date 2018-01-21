@@ -1,29 +1,18 @@
-package banbutsu.kyoto.com.databindingemotioncounter.ui.main;
+package banbutsu.kyoto.com.databindingemotioncounter.ui.remarks;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import banbutsu.kyoto.com.databindingemotioncounter.data.Repository;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry;
-import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.TripleEmotions;
 import banbutsu.kyoto.com.databindingemotioncounter.utils.Utility;
 import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Created by Yasuaki on 2018/01/14.
- * ViewModels survive configuration changes.
- * While this is true, ViewModels do not survive resource constraint related process death.
- * This is different than onSaveInstanceState, which does survive process death.
- *
- * ★ ★ ViewModel を Factory 経由で生成する理由 ★ ★
- * ViewModel は Activity や Fragment、 View などの context を取得する事を避ける必要がある。
- * それらの OBJ は ViewModel より lifespan が短いため、抱え込むと GC を妨げて
- * メモリーリークにつながってしまうから。
+ * Created by Yasuaki on 2018/01/19.
  */
-public class MainViewModel extends ViewModel {
 
-  private final Repository repository;
+public class RemarkViewModel extends ViewModel {
 
   private final LiveData<List<RemarkEntry>> joyRemarks;
   private final LiveData<List<RemarkEntry>> trustRemarks;
@@ -46,9 +35,9 @@ public class MainViewModel extends ViewModel {
   private final LiveData<List<RemarkEntry>> self_respectRemarks;
   private final LiveData<List<RemarkEntry>> nothingRemarks;
 
+  // コンストラクタで LiveData を ViewModel に取り込む
   @Inject
-  public MainViewModel(Repository repository) {
-    tripleEmotions = new MutableLiveData<>();
+  public RemarkViewModel(Repository repository) {
     joyRemarks = repository.getRemarkByEmotion(Utility.JOY_E);
     trustRemarks = repository.getRemarkByEmotion(Utility.TRUST_E);
     fearRemarks = repository.getRemarkByEmotion(Utility.FEAR_E);
@@ -69,46 +58,7 @@ public class MainViewModel extends ViewModel {
     shameRemarks = repository.getRemarkByEmotion(Utility.SHAME_E);
     self_respectRemarks = repository.getRemarkByEmotion(Utility.SELF_RESPECT_E);
     nothingRemarks = repository.getRemarkByEmotion(Utility.NOTHING_E);
-
-    this.repository = repository;
   }
-
-
-  public void firstLaunchCheck() {
-    repository.firstLaunchCheck();
-    tomorrowCheck();
-  }
-
-  public boolean tomorrowCheck() {
-    boolean isDateChanged = false;
-    long now = System.currentTimeMillis();
-    long tomorrow = repository.retrieveTomorrow();
-
-    if (tomorrow == 0L) {// 初ローンチ
-      repository.putTomorrow();
-      // Emission を新規作成
-      // 新しい Emission を取得させる
-
-    } else if (now >= tomorrow) {// 日付が変わった
-      // Emission を新規作成
-      // 新しい Emission を取得させる
-      transform();
-      repository.putTomorrow();
-      isDateChanged = true;
-
-
-    } else {// 同じ日の2回め以降
-//      getEmission();
-
-    }
-    return isDateChanged;
-  }
-
-  // TODO: 人物アイコンを変える
-  private void transform() {
-
-  }
-
 
   LiveData<List<RemarkEntry>> getRemarksByEmotion(String emotion) {
     switch (emotion) {
@@ -154,38 +104,5 @@ public class MainViewModel extends ViewModel {
       default:
         return nothingRemarks;
     }
-  }
-
-  private final MutableLiveData<TripleEmotions> tripleEmotions;
-
-  LiveData<TripleEmotions> getTripleEmotions() {
-    return tripleEmotions;
-  }
-
-  private String rawEmotion1 = "";
-  private String rawEmotion2 = "";
-  private String emStr1 = "";
-  private String emStr2 = "";
-  private String mixedEmotion1 = "";
-
-  void setEmotions(String emotion) {
-
-    // 感情名を取得
-    String rawEmotion3 = rawEmotion2;
-    rawEmotion2 = rawEmotion1;
-    rawEmotion1 = emotion;
-
-    String emStr3 = emStr2;
-    emStr2 = emStr1;
-    emStr1 = Utility.getEmotionString(emotion);
-
-    // 複合感情の組み合わせの有無をチェックして取得
-    String mixedEmotion2 = mixedEmotion1;
-    mixedEmotion1 = Utility.getMixedEmotionString(emStr1, emStr2);
-
-    // ここで MutableLiveData を更新
-    TripleEmotions tm = new TripleEmotions(rawEmotion1, rawEmotion2, rawEmotion3,
-        emStr1, emStr2, emStr3, mixedEmotion1, mixedEmotion2);
-    tripleEmotions.setValue(tm);
   }
 }

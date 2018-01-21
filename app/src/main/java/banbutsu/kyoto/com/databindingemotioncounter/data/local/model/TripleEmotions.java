@@ -1,4 +1,4 @@
-package banbutsu.kyoto.com.databindingemotioncounter.ui.view_model;
+package banbutsu.kyoto.com.databindingemotioncounter.data.local.model;
 
 /**
  * Created by Yasuaki on 2018/01/20.

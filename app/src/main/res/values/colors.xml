@@ -19,49 +19,9 @@
   <color name="card_transparent">#BF003E81</color>
   <color name="card_title_transparent">#BF001029</color>
 
-  <!-- Colors represents function-->
-  <color name="normal_panel_label">@color/black04</color>
-  <color name="normal_panel_body">@color/white10</color>
-  <color name="create_color">@color/deep_green03</color>
-  <color name="create_pressed">#006B5B</color>
-  <color name="edit_color">@color/yellow07</color>
-  <color name="edit_pressed">#DB9633</color>
-  <color name="delete_color">@color/red06</color>
-  <color name="delete_pressed">#840F28</color>
-  <color name="configure_color">@color/pink09</color>
-  <color name="configure_pressed">#CC4F4C</color>
-  <color name="sort_color">@color/black04</color>
-  <color name="sort_pressed">#110E11</color>
 
 
-  <color name="person_color">@color/deep_blue07</color>
-  <color name="person_pressed">#081F21</color>
-  <color name="normal_color">@color/black05</color>
-  <color name="normal_pressed">#101316</color>
-  <color name="attention_color">@color/grey01</color>
-  <color name="attention_pressed">#8E8E8E</color>
-  <color name="basic_emotion_pressed">#5B060D</color>
-  <color name="advanced_emotion_pressed">#000000</color>
-  <color name="btn_white_color">@color/white</color>
-  <color name="btn_white_color_pressed">@color/grey01</color>
-
-  <color name="group_color">@color/light_green02</color>
-  <color name="group_pressed">#396810</color>
-  <color name="filter_color">@color/purple03</color>
-  <color name="filter_pressed">#1C041B</color>
-
-  <!-- for help-->
-  <color name="btn_explanation">@color/black06</color>
-
-  <!-- for group-->
-  <color name="group_label">@color/black04</color>
-
-  <color name="basic_emotion_color">@color/red05</color>
-  <color name="advanced_emotion_color">@color/black03</color>
-
-  <color name="btnSelected">@color/red01</color>
-  <color name="btnUnSelected">@color/black05</color>
-
+  <color name="keyboard_back">@color/red07</color>
 
   <!-- new colors ///////////////////////////////////-->
   <color name="background_dark">@color/black05</color>
@@ -71,55 +31,6 @@
   <color name="text_attention_red">@color/red05</color>
   <color name="text_grey">@color/grey</color>
 
-
-  <color name="card_base_blue">@color/light_blue07</color>
-  <color name="card_label_red">@color/red02</color>
-  <color name="card_base_deep_blue">@color/deep_blue07</color>
-  <color name="card_label_yellow">@color/yellow01</color>
-
-  <color name="card_rank_yellow">@color/yellow06</color>
-  <color name="card_rank_yellow_for_yellow_base">@color/yellow07</color>
-  <color name="card_rank_second">@color/silver</color>
-  <color name="card_rank_third">@color/bronze</color>
-  <color name="card_rank_base_red">@color/red02</color>
-  <color name="card_rank_base_black">@color/black02</color>
-  <color name="card_rank_base_purple">@color/purple03</color>
-  <color name="card_rank_base_yellow">@color/yellow05</color>
-  <color name="card_rank_base_pink">@color/pink05</color>
-  <color name="card_rank_base_white">@color/white01</color>
-  <color name="red_text_for_card_rank_white">@color/red09</color>
-
-  <!-- for emotion -->
-  <color name="emotion_nothing">@color/white04</color>
-  <color name="emotion_joy">@color/yellow04</color>
-  <color name="emotion_trust">@color/light_green02</color>
-  <color name="emotion_fear">@color/black05</color>
-  <color name="emotion_anticipation">#1621EF</color>
-  <color name="emotion_sadness">#0464A5</color>
-  <color name="emotion_disgust">#BC9B51</color>
-  <color name="emotion_anger">#FF0000  </color>
-  <color name="emotion_surprise">#B1D12C</color>
-  <color name="emotion_optimism">#06A6FF</color>
-  <color name="emotion_disappointment">#707070</color>
-  <color name="emotion_love">#F6628E</color>
-  <color name="emotion_remorse">#9F21A3</color>
-  <color name="emotion_submission">#04A599</color>
-  <color name="emotion_contempt">#358700</color>
-  <color name="emotion_aggressiveness">#BA132F</color>
-  <color name="emotion_awe">#FF621D</color>
-  <color name="emotion_libido">#F4005E</color>
-  <color name="emotion_shame">#F4BDCF</color>
-  <color name="emotion_self_respect">#FAFF39</color>
-
-
-
-
-
-
-
-  <color name="left_radar_color">@color/yellow09</color>
-  <color name="right_radar_color">@color/red04</color>
-  <color name="radar_point_color">@color/grey01</color>
 
   <!-- colors for bases-->
   <color name="white05">#F7F0C4</color>

@@ -1,3 +1,24 @@
 <resources>
   <string name="app_name">感情ぽちぽっち</string>
+
+  <string name="joy">JOY</string>
+  <string name="trust">TRUST</string>
+  <string name="fear">FEAR</string>
+  <string name="anticipation">ANTICIPATION</string>
+  <string name="sadness">SADNESS</string>
+  <string name="disgust">DISGUST</string>
+  <string name="anger">ANGER</string>
+  <string name="surprise">SURPRISE</string>
+  <string name="optimism">OPTIMISM</string>
+  <string name="disappointment">DISAPPOINTMENT</string>
+  <string name="love">LOVE</string>
+  <string name="remorse">REMORSE</string>
+  <string name="submission">SUBMISSION</string>
+  <string name="contempt">CONTEMPT</string>
+  <string name="aggressiveness">AGGRESSIVENESS</string>
+  <string name="awe">AWE</string>
+  <string name="libido">LIBIDO</string>
+  <string name="shame">SHAME</string>
+  <string name="self_respect">SELF_RESPECT</string>
+  <string name="nothing">NOTHING</string>
 </resources>
