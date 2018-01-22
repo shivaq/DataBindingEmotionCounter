@@ -95,6 +95,30 @@ public class Utility {
       case SURPRISE_E:
         emotionStr = SURPRISE;
         break;
+      case OPTIMISM_E:
+        emotionStr = OPTIMISM;
+        break;
+      case DISAPPOINTMENT_E:
+        emotionStr = DISAPPOINTMENT;
+        break;
+      case LOVE_E:
+        emotionStr = LOVE;
+        break;
+      case REMORSE_E:
+        emotionStr = REMORSE;
+        break;
+      case SUBMISSION_E:
+        emotionStr = SUBMISSION;
+        break;
+      case CONTEMPT_E:
+        emotionStr = CONTEMPT;
+        break;
+      case AGGRESSIVENESS_E:
+        emotionStr = AGGRESSIVENESS;
+        break;
+      case AWE_E:
+        emotionStr = AWE;
+        break;
       case LIBIDO_E:
         emotionStr = LIBIDO;
         break;

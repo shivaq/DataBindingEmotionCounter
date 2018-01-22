@@ -21,11 +21,27 @@
       android:layout_marginStart="@dimen/edge16"
       android:layout_marginEnd="@dimen/edge16"
       app:layoutManager="LinearLayoutManager"
-      app:layout_constraintBottom_toTopOf="@+id/ll_emotion_btn_1"
+      app:layout_constraintBottom_toTopOf="@+id/frame_btn_add"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       tools:listitem="@layout/rv_item_remark_list"/>
+    <FrameLayout
+      android:id="@+id/frame_btn_add"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@color/keyboard_back"
+      app:layout_constraintBottom_toTopOf="@+id/frame_btn_character"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent">
+      <Button
+        android:id="@+id/btn_add_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="めちゃむかつくのセリフを追加する"
+        android:onClick="@{() -> remark.addRemark()}"
+        />
+    </FrameLayout>
     <FrameLayout
       android:id="@+id/frame_btn_character"
       android:layout_width="wrap_content"

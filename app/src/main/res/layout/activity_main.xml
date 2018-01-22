@@ -25,7 +25,6 @@
       android:paddingStart="@dimen/edge16"
       android:paddingEnd="@dimen/edge16"
       android:background="@drawable/shape_balloon"
-      android:visibility="invisible"
       app:layout_constraintBottom_toTopOf="@+id/frame_balloon2"
       app:layout_constraintEnd_toEndOf="@+id/frame_balloon1"
       app:layout_constraintHorizontal_bias="1.0"
@@ -33,7 +32,7 @@
       <TextView
         android:id="@+id/tv_balloon3"
         style="@style/tv_balloon"
-        tools:text="sugoisdfasdfssssssssssssssssssssssssssssssdfasdfsdfasdfsdfsssssssssssssssss"
+        android:text="自分の中で生じた時に、直感的に分類可能な８つの基本感情をボタンに割り当てている。"
         />
     </FrameLayout>
 
@@ -45,7 +44,6 @@
       android:paddingStart="@dimen/edge16"
       android:paddingEnd="@dimen/edge16"
       android:background="@drawable/shape_balloon"
-      android:visibility="invisible"
       app:layout_constraintBottom_toTopOf="@+id/frame_balloon1"
       app:layout_constraintEnd_toEndOf="@+id/frame_balloon1"
       app:layout_constraintHorizontal_bias="1.0"
@@ -53,7 +51,7 @@
       <TextView
         android:id="@+id/tv_balloon2"
         style="@style/tv_balloon"
-        tools:text="sugoisdfasdfssssssssssssssssssssssssssssssdfasdfsdfasdfsdfsssssssssssssssss"
+        android:text="基本感情の組み合わせによる、愛や後悔などの８つの複合感情は、「プルチックの感情の輪」に従っている。"
         />
     </FrameLayout>
 
@@ -66,7 +64,6 @@
       android:paddingStart="@dimen/edge16"
       android:paddingEnd="@dimen/edge16"
       android:background="@drawable/shape_balloon"
-      android:visibility="invisible"
       app:layout_constraintBottom_toBottomOf="@+id/balloon_triangle"
       app:layout_constraintEnd_toEndOf="@+id/character_right"
       app:layout_constraintHorizontal_bias="1.0"
@@ -74,7 +71,7 @@
       <TextView
         android:id="@+id/tv_balloon1"
         style="@style/tv_balloon"
-        tools:text="...."
+        android:text="性欲、自尊心、羞恥心、無は例外。"
         />
     </FrameLayout>
 
@@ -83,7 +80,6 @@
       android:id="@+id/balloon_triangle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:visibility="invisible"
       app:layout_constraintBottom_toTopOf="@+id/character_right"
       app:layout_constraintEnd_toEndOf="@+id/character_right"
       app:layout_constraintStart_toStartOf="@+id/character_right"

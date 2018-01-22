@@ -47,10 +47,6 @@ public class Repository {
     this.executor = executor;
   }
 
-  public LiveData<CharacterEntry> getCharacterById(int characterId) {
-    return characterDao.getCharacterById(characterId);
-  }
-
   public LiveData<List<RemarkEntry>> getRemarkByEmotion(String emotion) {
     return remarkDao.getRemarkByEmotion(emotion);
   }
