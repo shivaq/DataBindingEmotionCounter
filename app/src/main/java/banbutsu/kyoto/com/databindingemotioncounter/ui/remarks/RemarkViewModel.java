@@ -1,6 +1,7 @@
 package banbutsu.kyoto.com.databindingemotioncounter.ui.remarks;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import banbutsu.kyoto.com.databindingemotioncounter.data.Repository;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry;
@@ -34,10 +35,14 @@ public class RemarkViewModel extends ViewModel {
   private final LiveData<List<RemarkEntry>> shameRemarks;
   private final LiveData<List<RemarkEntry>> self_respectRemarks;
   private final LiveData<List<RemarkEntry>> nothingRemarks;
+  private final Repository repository;
+  private final MutableLiveData<Boolean> isDeleteMode;
 
   // コンストラクタで LiveData を ViewModel に取り込む
   @Inject
   public RemarkViewModel(Repository repository) {
+    this.repository = repository;
+    isDeleteMode = new MutableLiveData<>();
     joyRemarks = repository.getRemarkByEmotion(Utility.JOY_E);
     trustRemarks = repository.getRemarkByEmotion(Utility.TRUST_E);
     fearRemarks = repository.getRemarkByEmotion(Utility.FEAR_E);
@@ -60,6 +65,7 @@ public class RemarkViewModel extends ViewModel {
     nothingRemarks = repository.getRemarkByEmotion(Utility.NOTHING_E);
   }
 
+  ////////////////////// Remarks  ///////////////////////
   LiveData<List<RemarkEntry>> getRemarksByEmotion(String emotion) {
     switch (emotion) {
       case Utility.JOY_E:
@@ -105,4 +111,25 @@ public class RemarkViewModel extends ViewModel {
         return nothingRemarks;
     }
   }
+
+  public void insertRemark(String emotion, String say) {
+    repository.insertRemark(emotion, say);
+  }
+
+  public void updateRemark(String emotion, String say, long remarkId) {
+    repository.updateRemark(emotion, say, remarkId);
+  }
+  public void deleteRemark(long remarkId) {
+    repository.deleteRemark(remarkId);
+  }
+  ////////////////////// isDeleteMode  ///////////////////////
+  LiveData<Boolean> isDeleteMode() {
+    return isDeleteMode;
+  }
+
+  void setIsDeleteMode(boolean isDelete) {
+    isDeleteMode.postValue(isDelete);
+  }
+
+
 }

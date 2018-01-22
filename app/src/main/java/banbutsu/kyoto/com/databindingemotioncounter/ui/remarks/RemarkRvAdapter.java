@@ -45,6 +45,7 @@ public class RemarkRvAdapter extends DataBoundRvAdapter<RemarkEntry, RvItemRemar
         remarkRvCallback.onClick(remark);
       }
     });
+
     return binding;
   }
 

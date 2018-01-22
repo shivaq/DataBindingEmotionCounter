@@ -47,10 +47,25 @@ public class Repository {
     this.executor = executor;
   }
 
+  ////////////////////// Remark ///////////////////////////
   public LiveData<List<RemarkEntry>> getRemarkByEmotion(String emotion) {
     return remarkDao.getRemarkByEmotion(emotion);
   }
 
+  public void insertRemark(String emotion, String say) {
+    executor.diskIO().execute(() -> remarkDao.insert(new RemarkEntry(emotion, say)));
+
+  }
+
+  public void updateRemark(String emotion, String say, long remarkId) {
+    executor.diskIO().execute(() -> remarkDao.update(emotion, say, remarkId));
+  }
+
+  public void deleteRemark(long remarkId) {
+    executor.diskIO().execute(() -> remarkDao.delete(remarkId));
+  }
+
+  ////////////////////// Monologue ///////////////////////////
   public void createNewMonologue() {
     long emotionId = emotionDao.insert(
         new EmotionEntry(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -85,6 +100,7 @@ public class Repository {
 
     return monologueDao.getMonologueById(preferencesHelper.retrieveMonologueId());
   }
+
 
 
 }

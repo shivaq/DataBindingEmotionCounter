@@ -71,9 +71,6 @@ public class Utility {
   public static String getEmotionString(String emotion) {
     String emotionStr;
     switch (emotion) {
-      case JOY_E:
-        emotionStr = JOY;
-        break;
       case TRUST_E:
         emotionStr = TRUST;
         break;
@@ -129,8 +126,11 @@ public class Utility {
         emotionStr = SELF_RESPECT;
         break;
       case NOTHING_E:
-      default:
         emotionStr = "無";
+        break;
+      case JOY_E:
+      default:
+        emotionStr = JOY;
         break;
     }
     return emotionStr;
@@ -232,10 +232,12 @@ public class Utility {
   }
 
   @Retention(RetentionPolicy.SOURCE)
-  @StringDef({JOY, TRUST, FEAR, ANTICIPATION, SADNESS, DISGUST, ANGER, SURPRISE, OPTIMISM,
-      DISAPPOINTMENT, LOVE, REMORSE, SUBMISSION, CONTEMPT, AGGRESSIVENESS, AWE, LIBIDO, SHAME,
-      SELF_RESPECT})
-  public @interface AllEmotionDef {
+  @StringDef({JOY_E, TRUST_E, FEAR_E, ANTICIPATION_E, SADNESS_E, DISGUST_E, ANGER_E, SURPRISE_E,
+      OPTIMISM_E,
+      DISAPPOINTMENT_E, LOVE_E, REMORSE_E, SUBMISSION_E, CONTEMPT_E, AGGRESSIVENESS_E, AWE_E,
+      LIBIDO_E, SHAME_E,
+      SELF_RESPECT_E})
+  public @interface RawEmotionDef {
 
   }
 

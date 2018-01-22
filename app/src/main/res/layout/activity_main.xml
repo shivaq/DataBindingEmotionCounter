@@ -9,6 +9,11 @@
     <variable
       name="main"
       type="banbutsu.kyoto.com.databindingemotioncounter.ui.main.MainActivity"/>
+
+    <variable
+      name="util"
+      type="banbutsu.kyoto.com.databindingemotioncounter.utils.Utility"
+      />
   </data>
 
   <android.support.constraint.ConstraintLayout
@@ -32,7 +37,7 @@
       <TextView
         android:id="@+id/tv_balloon3"
         style="@style/tv_balloon"
-        android:text="自分の中で生じた時に、直感的に分類可能な８つの基本感情をボタンに割り当てている。"
+        android:text="８つの基本感情と性欲、自尊心、羞恥心、無のボタン。押せばセリフを表示します。"
         />
     </FrameLayout>
 
@@ -51,7 +56,7 @@
       <TextView
         android:id="@+id/tv_balloon2"
         style="@style/tv_balloon"
-        android:text="基本感情の組み合わせによる、愛や後悔などの８つの複合感情は、「プルチックの感情の輪」に従っている。"
+        android:text="基本感情の組み合わせで、８つの複合感情のセリフも表示されます。"
         />
     </FrameLayout>
 
@@ -71,7 +76,7 @@
       <TextView
         android:id="@+id/tv_balloon1"
         style="@style/tv_balloon"
-        android:text="性欲、自尊心、羞恥心、無は例外。"
+        android:text="感情分類は「プルチックの感情の輪」理論に従ってます。"
         />
     </FrameLayout>
 

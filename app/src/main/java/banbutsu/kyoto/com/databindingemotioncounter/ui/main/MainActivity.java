@@ -29,7 +29,6 @@ public class MainActivity extends BaseActivity {
   @Inject
   Context context;
 
-
   /**************************** Life cycle ********************************************/
   public MainActivity() {
   }
