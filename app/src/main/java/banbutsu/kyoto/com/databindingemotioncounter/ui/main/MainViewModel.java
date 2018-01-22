@@ -7,7 +7,9 @@ import banbutsu.kyoto.com.databindingemotioncounter.data.Repository;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.TripleEmotions;
 import banbutsu.kyoto.com.databindingemotioncounter.utils.Utility;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.inject.Inject;
 
 /**
@@ -25,50 +27,71 @@ public class MainViewModel extends ViewModel {
 
   private final Repository repository;
 
-  private final LiveData<List<RemarkEntry>> joyRemarks;
-  private final LiveData<List<RemarkEntry>> trustRemarks;
-  private final LiveData<List<RemarkEntry>> fearRemarks;
-  private final LiveData<List<RemarkEntry>> anticipationRemarks;
-  private final LiveData<List<RemarkEntry>> sadnessRemarks;
-  private final LiveData<List<RemarkEntry>> disgustRemarks;
-  private final LiveData<List<RemarkEntry>> angerRemarks;
-  private final LiveData<List<RemarkEntry>> surpriseRemarks;
-  private final LiveData<List<RemarkEntry>> optimismRemarks;
-  private final LiveData<List<RemarkEntry>> disappointmentRemarks;
-  private final LiveData<List<RemarkEntry>> loveRemarks;
-  private final LiveData<List<RemarkEntry>> remorseRemarks;
-  private final LiveData<List<RemarkEntry>> submissionRemarks;
-  private final LiveData<List<RemarkEntry>> contemptRemarks;
-  private final LiveData<List<RemarkEntry>> aggressivenessRemarks;
-  private final LiveData<List<RemarkEntry>> aweRemarks;
-  private final LiveData<List<RemarkEntry>> libidoRemarks;
-  private final LiveData<List<RemarkEntry>> shameRemarks;
-  private final LiveData<List<RemarkEntry>> self_respectRemarks;
-  private final LiveData<List<RemarkEntry>> nothingRemarks;
+  private final LiveData<List<RemarkEntry>> joyRemarksLive;
+  private final LiveData<List<RemarkEntry>> trustRemarksLive;
+  private final LiveData<List<RemarkEntry>> fearRemarksLive;
+  private final LiveData<List<RemarkEntry>> anticipationRemarksLive;
+  private final LiveData<List<RemarkEntry>> sadnessRemarksLive;
+  private final LiveData<List<RemarkEntry>> disgustRemarksLive;
+  private final LiveData<List<RemarkEntry>> angerRemarksLive;
+  private final LiveData<List<RemarkEntry>> surpriseRemarksLive;
+  private final LiveData<List<RemarkEntry>> optimismRemarksLive;
+  private final LiveData<List<RemarkEntry>> disappointmentRemarksLive;
+  private final LiveData<List<RemarkEntry>> loveRemarksLive;
+  private final LiveData<List<RemarkEntry>> remorseRemarksLive;
+  private final LiveData<List<RemarkEntry>> submissionRemarksLive;
+  private final LiveData<List<RemarkEntry>> contemptRemarksLive;
+  private final LiveData<List<RemarkEntry>> aggressivenessRemarksLive;
+  private final LiveData<List<RemarkEntry>> aweRemarksLive;
+  private final LiveData<List<RemarkEntry>> libidoRemarksLive;
+  private final LiveData<List<RemarkEntry>> shameRemarksLive;
+  private final LiveData<List<RemarkEntry>> self_respectRemarksLive;
+  private final LiveData<List<RemarkEntry>> nothingRemarksLive;
+
+  private List<RemarkEntry> joyRemarks = new ArrayList<>();
+  private List<RemarkEntry> trustRemarks = new ArrayList<>();
+  private List<RemarkEntry> fearRemarks = new ArrayList<>();
+  private List<RemarkEntry> anticipationRemarks = new ArrayList<>();
+  private List<RemarkEntry> sadnessRemarks = new ArrayList<>();
+  private List<RemarkEntry> disgustRemarks = new ArrayList<>();
+  private List<RemarkEntry> angerRemarks = new ArrayList<>();
+  private List<RemarkEntry> surpriseRemarks = new ArrayList<>();
+  private List<RemarkEntry> optimismRemarks = new ArrayList<>();
+  private List<RemarkEntry> disappointmentRemarks = new ArrayList<>();
+  private List<RemarkEntry> loveRemarks = new ArrayList<>();
+  private List<RemarkEntry> remorseRemarks = new ArrayList<>();
+  private List<RemarkEntry> submissionRemarks = new ArrayList<>();
+  private List<RemarkEntry> contemptRemarks = new ArrayList<>();
+  private List<RemarkEntry> aggressivenessRemarks = new ArrayList<>();
+  private List<RemarkEntry> aweRemarks = new ArrayList<>();
+  private List<RemarkEntry> libidoRemarks = new ArrayList<>();
+  private List<RemarkEntry> shameRemarks = new ArrayList<>();
+  private List<RemarkEntry> self_respectRemarks = new ArrayList<>();
+  private List<RemarkEntry> nothingRemarks = new ArrayList<>();
 
   @Inject
   public MainViewModel(Repository repository) {
     tripleEmotions = new MutableLiveData<>();
-    joyRemarks = repository.getRemarkByEmotion(Utility.JOY_E);
-    trustRemarks = repository.getRemarkByEmotion(Utility.TRUST_E);
-    fearRemarks = repository.getRemarkByEmotion(Utility.FEAR_E);
-    anticipationRemarks = repository.getRemarkByEmotion(Utility.ANTICIPATION_E);
-    sadnessRemarks = repository.getRemarkByEmotion(Utility.SADNESS_E);
-    disgustRemarks = repository.getRemarkByEmotion(Utility.DISGUST_E);
-    angerRemarks = repository.getRemarkByEmotion(Utility.ANGER_E);
-    surpriseRemarks = repository.getRemarkByEmotion(Utility.SURPRISE_E);
-    optimismRemarks = repository.getRemarkByEmotion(Utility.OPTIMISM_E);
-    disappointmentRemarks = repository.getRemarkByEmotion(Utility.DISAPPOINTMENT_E);
-    loveRemarks = repository.getRemarkByEmotion(Utility.LOVE_E);
-    remorseRemarks = repository.getRemarkByEmotion(Utility.REMORSE_E);
-    submissionRemarks = repository.getRemarkByEmotion(Utility.SUBMISSION_E);
-    contemptRemarks = repository.getRemarkByEmotion(Utility.CONTEMPT_E);
-    aggressivenessRemarks = repository.getRemarkByEmotion(Utility.AGGRESSIVENESS_E);
-    aweRemarks = repository.getRemarkByEmotion(Utility.AWE_E);
-    libidoRemarks = repository.getRemarkByEmotion(Utility.LIBIDO_E);
-    shameRemarks = repository.getRemarkByEmotion(Utility.SHAME_E);
-    self_respectRemarks = repository.getRemarkByEmotion(Utility.SELF_RESPECT_E);
-    nothingRemarks = repository.getRemarkByEmotion(Utility.NOTHING_E);
+    joyRemarksLive = repository.getRemarkByEmotion(Utility.JOY_E);
+    trustRemarksLive = repository.getRemarkByEmotion(Utility.TRUST_E);
+    fearRemarksLive = repository.getRemarkByEmotion(Utility.FEAR_E);
+    anticipationRemarksLive = repository.getRemarkByEmotion(Utility.ANTICIPATION_E);
+    sadnessRemarksLive = repository.getRemarkByEmotion(Utility.SADNESS_E);
+    disgustRemarksLive = repository.getRemarkByEmotion(Utility.DISGUST_E);
+    angerRemarksLive = repository.getRemarkByEmotion(Utility.ANGER_E);
+    surpriseRemarksLive = repository.getRemarkByEmotion(Utility.SURPRISE_E);
+    optimismRemarksLive = repository.getRemarkByEmotion(Utility.OPTIMISM_E);
+    disappointmentRemarksLive = repository.getRemarkByEmotion(Utility.DISAPPOINTMENT_E);
+    loveRemarksLive = repository.getRemarkByEmotion(Utility.LOVE_E);
+    remorseRemarksLive = repository.getRemarkByEmotion(Utility.REMORSE_E);
+    submissionRemarksLive = repository.getRemarkByEmotion(Utility.SUBMISSION_E);
+    contemptRemarksLive = repository.getRemarkByEmotion(Utility.CONTEMPT_E);
+    aggressivenessRemarksLive = repository.getRemarkByEmotion(Utility.AGGRESSIVENESS_E);
+    aweRemarksLive = repository.getRemarkByEmotion(Utility.AWE_E);
+    libidoRemarksLive = repository.getRemarkByEmotion(Utility.LIBIDO_E);
+    shameRemarksLive = repository.getRemarkByEmotion(Utility.SHAME_E);
+    self_respectRemarksLive = repository.getRemarkByEmotion(Utility.SELF_RESPECT_E);
+    nothingRemarksLive = repository.getRemarkByEmotion(Utility.NOTHING_E);
 
     this.repository = repository;
   }
@@ -113,46 +136,46 @@ public class MainViewModel extends ViewModel {
   LiveData<List<RemarkEntry>> getRemarksByEmotion(String emotion) {
     switch (emotion) {
       case Utility.JOY_E:
-        return joyRemarks;
+        return joyRemarksLive;
       case Utility.TRUST_E:
-        return trustRemarks;
+        return trustRemarksLive;
       case Utility.FEAR_E:
-        return fearRemarks;
+        return fearRemarksLive;
       case Utility.ANTICIPATION_E:
-        return anticipationRemarks;
+        return anticipationRemarksLive;
       case Utility.SADNESS_E:
-        return sadnessRemarks;
+        return sadnessRemarksLive;
       case Utility.DISGUST_E:
-        return disgustRemarks;
+        return disgustRemarksLive;
       case Utility.ANGER_E:
-        return angerRemarks;
+        return angerRemarksLive;
       case Utility.SURPRISE_E:
-        return surpriseRemarks;
+        return surpriseRemarksLive;
       case Utility.OPTIMISM_E:
-        return optimismRemarks;
+        return optimismRemarksLive;
       case Utility.DISAPPOINTMENT_E:
-        return disappointmentRemarks;
+        return disappointmentRemarksLive;
       case Utility.LOVE_E:
-        return loveRemarks;
+        return loveRemarksLive;
       case Utility.REMORSE_E:
-        return remorseRemarks;
+        return remorseRemarksLive;
       case Utility.SUBMISSION_E:
-        return submissionRemarks;
+        return submissionRemarksLive;
       case Utility.CONTEMPT_E:
-        return contemptRemarks;
+        return contemptRemarksLive;
       case Utility.AGGRESSIVENESS_E:
-        return aggressivenessRemarks;
+        return aggressivenessRemarksLive;
       case Utility.AWE_E:
-        return aweRemarks;
+        return aweRemarksLive;
       case Utility.LIBIDO_E:
-        return libidoRemarks;
+        return libidoRemarksLive;
       case Utility.SHAME_E:
-        return shameRemarks;
+        return shameRemarksLive;
       case Utility.SELF_RESPECT_E:
-        return self_respectRemarks;
+        return self_respectRemarksLive;
       case Utility.NOTHING_E:
       default:
-        return nothingRemarks;
+        return nothingRemarksLive;
     }
   }
 
@@ -167,14 +190,14 @@ public class MainViewModel extends ViewModel {
   private String emStr1 = "";
   private String emStr2 = "";
   private String mixedEmotion1 = "";
+  private String remark1 = "";
+  private String remark2 = "";
 
   void setEmotions(String emotion) {
-
     // 感情名を取得
     String rawEmotion3 = rawEmotion2;
     rawEmotion2 = rawEmotion1;
     rawEmotion1 = emotion;
-
     String emStr3 = emStr2;
     emStr2 = emStr1;
     emStr1 = Utility.getEmotionString(emotion);
@@ -183,9 +206,168 @@ public class MainViewModel extends ViewModel {
     String mixedEmotion2 = mixedEmotion1;
     mixedEmotion1 = Utility.getMixedEmotionString(emStr1, emStr2);
 
+    String remark3 = remark2;
+    remark2 = remark1;
+    remark1 = getRandomSay(mixedEmotion1.equals("")?rawEmotion1:Utility.getMixedEmotionRawStr(mixedEmotion1));
+
     // ここで MutableLiveData を更新
     TripleEmotions tm = new TripleEmotions(rawEmotion1, rawEmotion2, rawEmotion3,
-        emStr1, emStr2, emStr3, mixedEmotion1, mixedEmotion2);
+        emStr1, emStr2, emStr3, mixedEmotion1, mixedEmotion2, remark1, remark2, remark3);
     tripleEmotions.setValue(tm);
+  }
+
+  void putLiveToRawArrayList(String emotion, List<RemarkEntry> remarkList) {
+    switch (emotion) {
+      case Utility.JOY_E:
+        joyRemarks.clear();
+        joyRemarks.addAll(remarkList);
+        break;
+      case Utility.TRUST_E:
+        trustRemarks.clear();
+        trustRemarks.addAll(remarkList);
+        break;
+      case Utility.FEAR_E:
+        fearRemarks.clear();
+        fearRemarks.addAll(remarkList);
+        break;
+      case Utility.ANTICIPATION_E:
+        anticipationRemarks.clear();
+        anticipationRemarks.addAll(remarkList);
+        break;
+      case Utility.SADNESS_E:
+        sadnessRemarks.clear();
+        sadnessRemarks.addAll(remarkList);
+        break;
+      case Utility.DISGUST_E:
+        disgustRemarks.clear();
+        disgustRemarks.addAll(remarkList);
+        break;
+      case Utility.ANGER_E:
+        angerRemarks.clear();
+        angerRemarks.addAll(remarkList);
+        break;
+      case Utility.SURPRISE_E:
+        surpriseRemarks.clear();
+        surpriseRemarks.addAll(remarkList);
+        break;
+      case Utility.OPTIMISM_E:
+        optimismRemarks.clear();
+        optimismRemarks.addAll(remarkList);
+        break;
+      case Utility.DISAPPOINTMENT_E:
+        disappointmentRemarks.clear();
+        disappointmentRemarks.addAll(remarkList);
+        break;
+      case Utility.LOVE_E:
+        loveRemarks.clear();
+        loveRemarks.addAll(remarkList);
+        break;
+      case Utility.REMORSE_E:
+        remorseRemarks.clear();
+        remorseRemarks.addAll(remarkList);
+        break;
+      case Utility.SUBMISSION_E:
+        submissionRemarks.clear();
+        submissionRemarks.addAll(remarkList);
+        break;
+      case Utility.CONTEMPT_E:
+        contemptRemarks.clear();
+        contemptRemarks.addAll(remarkList);
+        break;
+      case Utility.AGGRESSIVENESS_E:
+        aggressivenessRemarks.clear();
+        aggressivenessRemarks.addAll(remarkList);
+        break;
+      case Utility.AWE_E:
+        aweRemarks.clear();
+        aweRemarks.addAll(remarkList);
+        break;
+      case Utility.LIBIDO_E:
+        libidoRemarks.clear();
+        libidoRemarks.addAll(remarkList);
+        break;
+      case Utility.SHAME_E:
+        shameRemarks.clear();
+        shameRemarks.addAll(remarkList);
+        break;
+      case Utility.SELF_RESPECT_E:
+        self_respectRemarks.clear();
+        self_respectRemarks.addAll(remarkList);
+        break;
+      case Utility.NOTHING_E:
+        nothingRemarks.clear();
+        nothingRemarks.addAll(remarkList);
+        break;
+    }
+  }
+
+  private Random random = new Random();
+
+  String getRandomSay(String emotion) {
+
+    String remark = "";
+    switch (emotion) {
+      case Utility.JOY_E:
+        remark = joyRemarks.get(random.nextInt(joyRemarks.size())).say;
+        break;
+      case Utility.TRUST_E:
+        remark = trustRemarks.get(random.nextInt(trustRemarks.size())).say;
+        break;
+      case Utility.FEAR_E:
+        remark = fearRemarks.get(random.nextInt(fearRemarks.size())).say;
+        break;
+      case Utility.ANTICIPATION_E:
+        remark = anticipationRemarks.get(random.nextInt(anticipationRemarks.size())).say;
+        break;
+      case Utility.SADNESS_E:
+        remark = sadnessRemarks.get(random.nextInt(sadnessRemarks.size())).say;
+        break;
+      case Utility.DISGUST_E:
+        remark = disgustRemarks.get(random.nextInt(disgustRemarks.size())).say;
+        break;
+      case Utility.ANGER_E:
+        remark = angerRemarks.get(random.nextInt(angerRemarks.size())).say;
+        break;
+      case Utility.SURPRISE_E:
+        remark = surpriseRemarks.get(random.nextInt(surpriseRemarks.size())).say;
+        break;
+      case Utility.OPTIMISM_E:
+        remark = optimismRemarks.get(random.nextInt(optimismRemarks.size())).say;
+        break;
+      case Utility.DISAPPOINTMENT_E:
+        remark = disappointmentRemarks.get(random.nextInt(disappointmentRemarks.size())).say;
+        break;
+      case Utility.LOVE_E:
+        remark = loveRemarks.get(random.nextInt(loveRemarks.size())).say;
+        break;
+      case Utility.REMORSE_E:
+        remark = remorseRemarks.get(random.nextInt(remorseRemarks.size())).say;
+        break;
+      case Utility.SUBMISSION_E:
+        remark = submissionRemarks.get(random.nextInt(submissionRemarks.size())).say;
+        break;
+      case Utility.CONTEMPT_E:
+        remark = contemptRemarks.get(random.nextInt(contemptRemarks.size())).say;
+        break;
+      case Utility.AGGRESSIVENESS_E:
+        remark = aggressivenessRemarks.get(random.nextInt(aggressivenessRemarks.size())).say;
+        break;
+      case Utility.AWE_E:
+        remark = aweRemarks.get(random.nextInt(aweRemarks.size())).say;
+        break;
+      case Utility.LIBIDO_E:
+        remark = libidoRemarks.get(random.nextInt(libidoRemarks.size())).say;
+        break;
+      case Utility.SHAME_E:
+        remark = shameRemarks.get(random.nextInt(shameRemarks.size())).say;
+        break;
+      case Utility.SELF_RESPECT_E:
+        remark = self_respectRemarks.get(random.nextInt(self_respectRemarks.size())).say;
+        break;
+      case Utility.NOTHING_E:
+        remark = nothingRemarks.get(random.nextInt(nothingRemarks.size())).say;
+        break;
+    }
+    return remark;
   }
 }

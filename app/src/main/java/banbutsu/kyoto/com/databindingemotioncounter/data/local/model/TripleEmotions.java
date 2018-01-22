@@ -14,10 +14,14 @@ public class TripleEmotions {
   private String emotion3;
   private String mixedEmotion1;
   private String mixedEmotion2;
+  private String remark1;
+  private String remark2;
+  private String remark3;
 
   public TripleEmotions(String rawEmotion1, String rawEmotion2, String rawEmotion3,
-      String emotion1,      String emotion2,      String emotion3,
-      String mixedEmotion1, String mixedEmotion2) {
+      String emotion1, String emotion2, String emotion3,
+      String mixedEmotion1, String mixedEmotion2, String remark1, String remark2,
+      String remark3) {
     this.rawEmotion1 = rawEmotion1;
     this.rawEmotion2 = rawEmotion2;
     this.rawEmotion3 = rawEmotion3;
@@ -26,6 +30,9 @@ public class TripleEmotions {
     this.emotion3 = emotion3;
     this.mixedEmotion1 = mixedEmotion1;
     this.mixedEmotion2 = mixedEmotion2;
+    this.remark1 = remark1;
+    this.remark2 = remark2;
+    this.remark3 = remark3;
   }
 
   public String getRawEmotion1() {
@@ -60,4 +67,15 @@ public class TripleEmotions {
     return mixedEmotion2;
   }
 
+  public String getRemark1() {
+    return remark1;
+  }
+
+  public String getRemark2() {
+    return remark2;
+  }
+
+  public String getRemark3() {
+    return remark3;
+  }
 }
