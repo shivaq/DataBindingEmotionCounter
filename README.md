@@ -1,6 +1,6 @@
 感情ぽちぽっち
 ==========
-Architecture Components に慣れるために作ったサンプルアプリ。
+Dagger2 と DataBinding と Architecture Components の連携のために慣れるために作っているサンプルアプリ。
 感情ボタンを押すと、その感情に応じたセリフをランダムに表示する。
 感情ごとにセリフの追加、編集、削除が可能。
 
