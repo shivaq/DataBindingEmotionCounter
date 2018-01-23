@@ -2,8 +2,15 @@ EmotionCounter
 ==========
 感情ボタンを押すと、その感情に応じたセリフをランダムに表示
 
-Dagger2
--------
+- [Dagger2](#dagger2)
+- [Room](#room)
+- [Repository](#repository)
+- [ViewModel](#viewmodel)
+- [View](#view)
+- [DataBinding](#databinding)
+- [DataBoundRvAdapter](#databoundrvadapter)
+
+## Dagger2
 Architecture Components も Dagger2 で依存注入
 ViewModel も ViewModelFactory もまとめて ViewModelModule に登録
 ```java
@@ -77,8 +84,7 @@ public abstract class ActivityBuilderModule {
 
 
 
-Room
--------
+## Room
 Room で データベースを定義
 ```java
 @Database(entities = {CharacterEntry.class, MonologueEntry.class, EmotionEntry.class,
@@ -145,8 +151,7 @@ public class MonologueEntry {
 
 ```
 
-Repository
--------
+## Repository
 Repository から Dao 経由で Sqlite にアクセス
 ```java
 @Singleton
@@ -195,8 +200,7 @@ public class Repository {
 }
 ```
 
-ViewModel
-----------
+## ViewModel
 各  ViewModel は Repository へアクセス
 
 ```java
@@ -242,8 +246,7 @@ public class MainViewModel extends ViewModel {
   }
 ```
 
-View
--------
+## View
 MainActivity はコンシューマとして ViewModel の LiveData を Observe。
 UI の感情ボタンは、DataBinding を使って ViewModel に感情データを送る。
 ViewModel で感情オブジェクト TripleEmotions を更新。
@@ -294,8 +297,7 @@ public class MainActivity extends BaseActivity {
 }
 ```
 
-DataBinding
-----
+## DataBinding
 感情ボタンから感情情報を送っている
 
 ```xml
@@ -326,8 +328,7 @@ DataBinding
         />
 </layout>
 ```
-DataBoundRvAdapter
--------------
+## DataBoundRvAdapter
 DataBinding に対応した RecyclerView adapter の抽象クラス
 
 ```java
