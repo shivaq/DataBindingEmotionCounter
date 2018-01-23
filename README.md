@@ -5,7 +5,7 @@ EmotionCounter
 Dagger2
 -------
 Architecture Components も Dagger2 で依存注入
-ViewModel も ViewModelFactory もまとめて ViewModelModule に登録して
+ViewModel も ViewModelFactory もまとめて ViewModelModule に登録
 ```java
 @Module
 public abstract class ViewModelModule {
@@ -248,9 +248,12 @@ MainActivity はコンシューマとして ViewModel の LiveData を Observe�
 UI の感情ボタンは、DataBinding を使って ViewModel に感情データを送る。
 ViewModel で感情オブジェクト TripleEmotions を更新。
 
-TripleEmotions は、「ViewModel はデータストリームだけではなく、View の状態も expose すべし」という考えに沿って、
+TripleEmotions は、「ViewModel はデータストリームだけではなく、
+View の状態も expose すべし」という考えに沿って、
 いくつかのフィールドをカプセル化した オブジェクト。
-押下された感情の組み合わせによって、複合感情をセットするロジックや、セリフをランダム表示するロジックで更新されている。
+
+ViewModel にて、押下された感情の組み合わせによって、複合感情をセットするロジックや、
+セリフをランダム表示するロジックで更新されている。
 
 TripleEmotions に対する Observe によって、UI の感情セリフが表示される。
 
@@ -293,6 +296,8 @@ public class MainActivity extends BaseActivity {
 
 DataBinding
 ----
+感情ボタンから感情情報を送っている
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -320,4 +325,184 @@ DataBinding
         app:srcCompat="@drawable/ic_face_self_respect_selected"
         />
 </layout>
+```
+DataBoundRvAdapter
+-------------
+DataBinding に対応した RecyclerView adapter の抽象クラス
+
+```java
+public abstract class DataBoundRvAdapter<T, V extends ViewDataBinding>
+    extends RecyclerView.Adapter<DataBoundViewHolder<V>> {
+
+  protected abstract V createBinding(ViewGroup parent);
+
+  @Override
+  public DataBoundViewHolder<V> onCreateViewHolder(ViewGroup parent, int viewType) {
+    // 具象クラスのほうで ViewDataBinding を実装して受け取る
+    V binding = createBinding(parent);
+    return new DataBoundViewHolder<>(binding);
+  }
+
+  protected abstract void bindObjToItem(V binding, T item);
+
+  @Nullable
+  private List<T> list;
+
+  @Override
+  public void onBindViewHolder(DataBoundViewHolder<V> holder, int position) {
+
+    // $1: ViewDataBinding $2: xml の <data> 経由でアクセスさせる List
+    bindObjToItem(holder.binding, list.get(position));
+    // executePendingBindings:View が持つ式に紐付いた変数 が変化した時、View を更新する。
+    // スクロール時に Binding がなされているかチェックすることで、挙動を安定させる
+    holder.binding.executePendingBindings();
+  }
+
+  @Override
+  public int getItemCount() {
+    if (list != null) {
+      Timber.d("DataBoundRvAdapter:getItemCount: list size:%s",list.size());
+    }
+    return list == null ? 0 : list.size();
+  }
+
+  /********************* DiffUtil を AsyncTask で実行 ********************************/
+  protected abstract boolean areItemsTheSame(T oldItem, T newItem);
+
+  protected abstract boolean areContentsTheSame(T oldItem, T newItem);
+
+  // each time data is set, we update this variable so that if DiffUtil calculation returns
+  // after repetitive updates, we can ignore the old calculation
+  private int dataVersion = 0;
+
+  @SuppressLint("StaticFieldLeak")
+  @MainThread
+  public void replaceWithDiffUtil(List<T> listToUpdate) {
+    dataVersion++;
+    // 既存のリスト 及び 置換候補リストをnullチェック
+    if (list == null) {
+      if (listToUpdate == null) {
+        return;
+      }
+      list = listToUpdate;
+      notifyDataSetChanged();
+    } else if (listToUpdate == null) {
+      int oldSize = list.size();
+      list = null;
+      notifyItemRangeRemoved(0, oldSize);
+    } else {// 要置換
+      final int startVersion = dataVersion;
+      final List<T> oldList = list;
+      new AsyncTask<Void, Void, DiffResult>() {
+
+        @Override
+        protected DiffResult doInBackground(Void... voids) {
+          return DiffUtil.calculateDiff(new Callback() {
+
+            @Override
+            public int getOldListSize() {
+              return oldList.size();
+            }
+
+            @Override
+            public int getNewListSize() {
+              return listToUpdate.size();
+            }
+
+            @Override
+            public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+              T oldItem = oldList.get(oldItemPosition);
+              T newItem = listToUpdate.get(newItemPosition);
+              return DataBoundRvAdapter.this.areItemsTheSame(oldItem, newItem);
+            }
+
+            @Override
+            public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+              T oldItem = oldList.get(oldItemPosition);
+              T newItem = listToUpdate.get(newItemPosition);
+              return DataBoundRvAdapter.this.areContentsTheSame(oldItem, newItem);
+            }
+          });
+        }
+
+        @Override
+        protected void onPostExecute(DiffResult diffResult) {
+          if (startVersion != dataVersion) {
+            // update 不要
+            return;
+          }
+          list = listToUpdate;
+          Timber.d("DataBoundRvAdapter:onPostExecute: postExecute list size:%s",list.size());
+          diffResult.dispatchUpdatesTo(DataBoundRvAdapter.this);
+        }
+      }.execute();
+    }
+  }
+}
+
+```
+
+そしてその具象クラス
+```java
+public class RemarkRvAdapter extends DataBoundRvAdapter<RemarkEntry, RvItemRemarkListBinding> {
+
+  private RemarkRvCallback remarkRvCallback;
+
+  public RemarkRvAdapter(RemarkRvCallback remarkRvCallback) {
+    this.remarkRvCallback = remarkRvCallback;
+  }
+
+  /**
+   * ・アイテムのレイアウトから ViewBinding を生成させ、
+   * アイテム内の 各View にクリックListener等をセット。
+   *
+   * ・返り値 の ViewBinding を RvAdapter の抽象クラスを経由させる
+   *
+   * ・ViewHolder のコンストラクタの引数に ViewBinding が渡される
+   * @param parent
+   * @return
+   */
+  @Override
+  protected RvItemRemarkListBinding createBinding(ViewGroup parent) {
+
+    // RecyclerView のアイテムの ViewBinding を取得
+    RvItemRemarkListBinding binding =
+        DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
+            R.layout.rv_item_remark_list, parent, false);
+
+    binding.getRoot().setOnClickListener(v -> {
+      RemarkEntry remark = binding.getRemark();
+      if (remark != null && remarkRvCallback != null) {
+        remarkRvCallback.onClick(remark);
+      }
+    });
+
+    return binding;
+  }
+
+  @Override
+  protected void bindObjToItem(RvItemRemarkListBinding binding, RemarkEntry remark) {
+    // RvItem から <data> 内のアイテムにアクセスできるようにするため、
+    // ViewDataBinding に OBJ を渡す
+    binding.setRemark(remark);
+  }
+
+  @Override
+  protected boolean areItemsTheSame(RemarkEntry oldItem, RemarkEntry newItem) {
+    return ObjEqualCheck.equals(oldItem.id, newItem.id);
+  }
+
+  @Override
+  protected boolean areContentsTheSame(RemarkEntry oldItem, RemarkEntry newItem) {
+    return ObjEqualCheck.equals(oldItem.say, newItem.say)
+        && ObjEqualCheck.equals(oldItem.emotion, newItem.emotion);
+  }
+
+  /***************************** Callback *********************************/
+  interface RemarkRvCallback {
+
+    void onClick(RemarkEntry remark);
+  }
+}
+
 ```
