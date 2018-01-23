@@ -1,6 +1,10 @@
-EmotionCounter
+感情ぽちぽっち
 ==========
-感情ボタンを押すと、その感情に応じたセリフをランダムに表示
+Architecture Components に慣れるために作ったサンプルアプリ。
+感情ボタンを押すと、その感情に応じたセリフをランダムに表示する。
+感情ごとにセリフの追加、編集、削除が可能。
+![screenshot_20180123-135326_framed](https://user-images.githubusercontent.com/22390344/35258966-4d67bace-0046-11e8-833e-26daba558ebc.png)
+![screenshot_20180123-135440_framed](https://user-images.githubusercontent.com/22390344/35258965-4d43fc42-0046-11e8-9507-d932fd9cd2e9.png)
 
 - [Dagger2](#dagger2)
 - [Room](#room)
