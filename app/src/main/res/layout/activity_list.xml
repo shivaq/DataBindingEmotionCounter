@@ -26,6 +26,7 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       tools:listitem="@layout/rv_item_remark_list"/>
+
     <FrameLayout
       android:id="@+id/frame_btn_add"
       android:layout_width="0dp"

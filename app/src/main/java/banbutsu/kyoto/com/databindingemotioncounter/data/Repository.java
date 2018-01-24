@@ -1,7 +1,6 @@
 package banbutsu.kyoto.com.databindingemotioncounter.data;
 
 import android.arch.lifecycle.LiveData;
-import android.content.Context;
 import banbutsu.kyoto.com.databindingemotioncounter.MyExecutor;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.PreferencesHelper;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.CharacterDao;
@@ -23,7 +22,6 @@ import javax.inject.Singleton;
 @Singleton
 public class Repository {
 
-  private final Context context;
   private final PreferencesHelper preferencesHelper;
   private final CharacterDao characterDao;
   private final MonologueDao monologueDao;
@@ -33,12 +31,11 @@ public class Repository {
   private final MyExecutor executor;
 
   @Inject
-  public Repository(Context context,
+  public Repository(
       PreferencesHelper preferencesHelper,
       CharacterDao characterDao,
       MonologueDao monologueDao, EmotionDao emotionDao,
       RemarkDao remarkDao, MyExecutor executor) {
-    this.context = context;
     this.preferencesHelper = preferencesHelper;
     this.characterDao = characterDao;
     this.monologueDao = monologueDao;

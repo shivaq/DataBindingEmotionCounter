@@ -28,6 +28,7 @@ public class DbUtility {
     remarkEntries.add(new RemarkEntry(Utility.LOVE_E, "やあ、また会ったねベイビー？"));
     remarkEntries.add(new RemarkEntry(Utility.LOVE_E, "いいんだよ？"));
     remarkEntries.add(new RemarkEntry(Utility.LOVE_E, "うれしいよ"));
+    remarkEntries.add(new RemarkEntry(Utility.LOVE_E, "世界を革命する力を！"));
 
     // 性欲
     remarkEntries.add(new RemarkEntry(Utility.LIBIDO_E, "(ハァハァハァ)"));
@@ -38,6 +39,7 @@ public class DbUtility {
     remarkEntries.add(new RemarkEntry(Utility.OPTIMISM_E, "心配しないで。最後にはうまくいくから！"));
     remarkEntries.add(new RemarkEntry(Utility.OPTIMISM_E, "大丈夫だよー！！"));
     remarkEntries.add(new RemarkEntry(Utility.OPTIMISM_E, "いけるいける！（根拠はない）"));
+    remarkEntries.add(new RemarkEntry(Utility.OPTIMISM_E, "Yes! We! Can!! Yes! We! Can!! "));
 
     // 自尊心
     remarkEntries.add(new RemarkEntry(Utility.SELF_RESPECT_E, "でしょ？私そうなんだよね～"));
@@ -62,6 +64,7 @@ public class DbUtility {
     // 軽蔑
     remarkEntries.add(new RemarkEntry(Utility.CONTEMPT_E, "こういうやついるんだよな..."));
     remarkEntries.add(new RemarkEntry(Utility.CONTEMPT_E, "テメーはサイテーだ！"));
+    remarkEntries.add(new RemarkEntry(Utility.CONTEMPT_E, "死ねばいいのに..."));
 
     // 怒り
     remarkEntries.add(new RemarkEntry(Utility.ANGER_E, "ぶっ殺す！"));
@@ -69,6 +72,8 @@ public class DbUtility {
     remarkEntries.add(new RemarkEntry(Utility.ANGER_E, "Grrrrrrrrrrrrrrruu!"));
     remarkEntries.add(new RemarkEntry(Utility.ANGER_E, "なんだと？！"));
     remarkEntries.add(new RemarkEntry(Utility.ANGER_E, "どういう意味だよ？！"));
+    remarkEntries.add(new RemarkEntry(Utility.ANGER_E, "テメーは俺を怒らせた！"));
+    remarkEntries.add(new RemarkEntry(Utility.ANGER_E, "クリリンのことかーッッ!!"));
 
     // 攻撃性
     remarkEntries.add(new RemarkEntry(Utility.AGGRESSIVENESS_E, "今、殴りに行きます。"));
@@ -85,6 +90,7 @@ public class DbUtility {
     // 悲しみ
     remarkEntries.add(new RemarkEntry(Utility.SADNESS_E, "私は悲しい"));
     remarkEntries.add(new RemarkEntry(Utility.SADNESS_E, "しくしく..."));
+    remarkEntries.add(new RemarkEntry(Utility.SADNESS_E, "またひとり..."));
 
     // 失望
     remarkEntries.add(new RemarkEntry(Utility.DISAPPOINTMENT_E, "がっかりだよ..."));
@@ -109,6 +115,8 @@ public class DbUtility {
     remarkEntries.add(new RemarkEntry(Utility.AWE_E, "（おお....）"));
     remarkEntries.add(new RemarkEntry(Utility.AWE_E, "（ああ......）"));
     remarkEntries.add(new RemarkEntry(Utility.AWE_E, "（なんとまあ....ありがたや...）"));
+    remarkEntries.add(new RemarkEntry(Utility.AWE_E, "アーメン..."));
+    remarkEntries.add(new RemarkEntry(Utility.AWE_E, "なんまんだぶ..."));
 
     // 無
     remarkEntries.add(new RemarkEntry(Utility.NOTHING_E, "........"));

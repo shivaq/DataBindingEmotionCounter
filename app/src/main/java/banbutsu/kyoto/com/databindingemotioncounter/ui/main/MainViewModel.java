@@ -3,6 +3,7 @@ package banbutsu.kyoto.com.databindingemotioncounter.ui.main;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.support.annotation.VisibleForTesting;
 import banbutsu.kyoto.com.databindingemotioncounter.data.Repository;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.RemarkEntry;
 import banbutsu.kyoto.com.databindingemotioncounter.data.local.model.TripleEmotions;
@@ -72,6 +73,7 @@ public class MainViewModel extends ViewModel {
   @Inject
   public MainViewModel(Repository repository) {
     tripleEmotions = new MutableLiveData<>();
+
     joyRemarksLive = repository.getRemarkByEmotion(Utility.JOY_E);
     trustRemarksLive = repository.getRemarkByEmotion(Utility.TRUST_E);
     fearRemarksLive = repository.getRemarkByEmotion(Utility.FEAR_E);
@@ -132,8 +134,8 @@ public class MainViewModel extends ViewModel {
 
   }
 
-
-  LiveData<List<RemarkEntry>> getRemarksByEmotion(String emotion) {
+  @VisibleForTesting
+  public LiveData<List<RemarkEntry>> getRemarksByEmotion(String emotion) {
     switch (emotion) {
       case Utility.JOY_E:
         return joyRemarksLive;
@@ -211,7 +213,7 @@ public class MainViewModel extends ViewModel {
     remark1 = getRandomSay(mixedEmotion1.equals("")?rawEmotion1:Utility.getMixedEmotionRawStr(mixedEmotion1));
 
     // ここで MutableLiveData を更新
-    TripleEmotions tm = new TripleEmotions(rawEmotion1, rawEmotion2, rawEmotion3,
+    TripleEmotions tm = TripleEmotions.getInstance(rawEmotion1, rawEmotion2, rawEmotion3,
         emStr1, emStr2, emStr3, mixedEmotion1, mixedEmotion2, remark1, remark2, remark3);
     tripleEmotions.setValue(tm);
   }

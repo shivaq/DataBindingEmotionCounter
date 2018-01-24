@@ -33,7 +33,6 @@ public abstract class DataBoundRvAdapter<T, V extends ViewDataBinding>
 
   protected abstract void bindObjToItem(V binding, T item);
 
-
   @Nullable
   private List<T> list;
 
